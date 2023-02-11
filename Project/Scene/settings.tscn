@@ -84,6 +84,7 @@ scale_amount_max = 0.4
 color = Color(0.137255, 0.0509804, 0.337255, 1)
 
 [node name="Beginning Options" type="CenterContainer" parent="."]
+layout_mode = 0
 offset_left = 271.0
 offset_right = 845.0
 offset_bottom = 646.0
@@ -133,4 +134,4 @@ libraries = {
 "": SubResource("AnimationLibrary_ll6ix")
 }
 
-[connection signal="pressed" from="Beginning Options/HFlowContainer/Continue" to="Beginning Options" method="_back_to_menu"]
+[connection signal="pressed" from="Beginning Options/HFlowContainer/Continue" to="Beginning Options" method="_on_continue_pressed"]
