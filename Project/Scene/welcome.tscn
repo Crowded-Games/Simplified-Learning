@@ -1,14 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0806pnume82h"]
+[gd_scene load_steps=13 format=3 uid="uid://b6c4sucgb0rk4"]
 
 [ext_resource type="Script" path="res://Code/Welcome.gd" id="1_ao5ou"]
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_jcpuy"]
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="2_l6t5x"]
+[ext_resource type="Script" path="res://Code/Beginning Options.gd" id="4_5f3xt"]
 
-[sub_resource type="Gradient" id="Gradient_xqhld"]
+[sub_resource type="Gradient" id="Gradient_s8rf0"]
 colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_u5xud"]
-gradient = SubResource("Gradient_xqhld")
+gradient = SubResource("Gradient_s8rf0")
 fill_from = Vector2(0, 0.00458716)
 
 [sub_resource type="Animation" id="Animation_5uwn1"]
@@ -34,6 +35,18 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Text:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -80,11 +93,61 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Text:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xoeiq"]
 _data = {
 "appear": SubResource("Animation_5uwn1"),
 "disappear": SubResource("Animation_qb875")
+}
+
+[sub_resource type="Animation" id="Animation_8wali"]
+resource_name = "appear"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7ao2k"]
+resource_name = "disappear"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ll6ix"]
+_data = {
+"appear": SubResource("Animation_8wali"),
+"disappear": SubResource("Animation_7ao2k")
 }
 
 [node name="Welcome" type="Control"]
@@ -98,12 +161,14 @@ grow_vertical = 2
 [node name="Background" type="Node" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
+z_index = -1
 position = Vector2(575.992, 324.007)
 rotation = 1.5708
 scale = Vector2(10.1252, 17.9997)
 texture = SubResource("GradientTexture2D_u5xud")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Background"]
+z_index = 1
 position = Vector2(1321, 300)
 rotation = 3.14159
 amount = 4
@@ -124,9 +189,10 @@ color = Color(0.137255, 0.0509804, 0.337255, 1)
 script = ExtResource("1_ao5ou")
 Continue = NodePath("AgreeButton")
 Text = NodePath("Text")
-words = PackedStringArray("Welcome! You must be new here!")
+words = PackedStringArray("Welcome! You must be new here!", "Before we get to the main game, lets set some things up.", "Don\'t worry, you can change this later.", "This also will affect your use of this app.")
 
 [node name="AgreeButton" type="Button" parent="Happyness"]
+visible = false
 offset_left = 523.0
 offset_top = 476.0
 offset_right = 571.0
@@ -144,7 +210,7 @@ offset_right = 824.0
 offset_bottom = 466.0
 theme_override_fonts/normal_font = ExtResource("2_l6t5x")
 theme_override_font_sizes/normal_font_size = 50
-text = "Welcome to my way of studying things. First, I need to ask you a few questions."
+text = "Welcome! looks like you are new here."
 shortcut_keys_enabled = false
 deselect_on_focus_loss_enabled = false
 
@@ -153,4 +219,58 @@ libraries = {
 "": SubResource("AnimationLibrary_xoeiq")
 }
 
+[node name="Beginning Options" type="CenterContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 271.0
+offset_right = 845.0
+offset_bottom = 646.0
+script = ExtResource("4_5f3xt")
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Beginning Options"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Beginning Options/HFlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l6t5x")
+theme_override_font_sizes/font_size = 40
+text = "How do you like to write?"
+
+[node name="OptionButton" type="OptionButton" parent="Beginning Options/HFlowContainer"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Using Paper"
+popup/item_0/id = 0
+popup/item_1/text = "Using The Computer"
+popup/item_1/id = 1
+
+[node name="Label2" type="Label" parent="Beginning Options/HFlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l6t5x")
+theme_override_font_sizes/font_size = 40
+text = "Are you able to listen to audio?"
+
+[node name="OptionButton2" type="OptionButton" parent="Beginning Options/HFlowContainer"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Yes"
+popup/item_0/id = 0
+popup/item_1/text = "No"
+popup/item_1/id = 1
+
+[node name="HSeparator" type="HSeparator" parent="Beginning Options/HFlowContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="Continue" type="Button" parent="Beginning Options/HFlowContainer"]
+layout_mode = 2
+text = "Nice. Save Options!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Beginning Options"]
+libraries = {
+"": SubResource("AnimationLibrary_ll6ix")
+}
+
+[connection signal="ShowOptions" from="Happyness" to="Beginning Options" method="_on_happyness_show_options"]
 [connection signal="pressed" from="Happyness/AgreeButton" to="Happyness" method="_on_agree_button_pressed"]
+[connection signal="pressed" from="Beginning Options/HFlowContainer/Continue" to="Beginning Options" method="_on_continue_pressed"]

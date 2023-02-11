@@ -1,0 +1,136 @@
+[gd_scene load_steps=9 format=3 uid="uid://cgkvyc3omrg30"]
+
+[ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_shjx3"]
+[ext_resource type="Script" path="res://Code/Beginning Options.gd" id="2_jyq71"]
+[ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="3_4pxv3"]
+
+[sub_resource type="Gradient" id="Gradient_xqhld"]
+colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_al4y2"]
+gradient = SubResource("Gradient_xqhld")
+fill_from = Vector2(0, 0.00458716)
+
+[sub_resource type="Animation" id="Animation_8wali"]
+resource_name = "appear"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7ao2k"]
+resource_name = "disappear"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ll6ix"]
+_data = {
+"appear": SubResource("Animation_8wali"),
+"disappear": SubResource("Animation_7ao2k")
+}
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(575.992, 324.007)
+rotation = 1.5708
+scale = Vector2(10.1252, 17.9997)
+texture = SubResource("GradientTexture2D_al4y2")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background"]
+position = Vector2(1321, 300)
+rotation = 3.14159
+amount = 4
+lifetime = 30.0
+preprocess = 20.0
+texture = ExtResource("1_shjx3")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 300)
+spread = 5.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+scale_amount_min = 0.4
+scale_amount_max = 0.4
+color = Color(0.137255, 0.0509804, 0.337255, 1)
+
+[node name="Beginning Options" type="CenterContainer" parent="."]
+offset_left = 271.0
+offset_right = 845.0
+offset_bottom = 646.0
+script = ExtResource("2_jyq71")
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Beginning Options"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Beginning Options/HFlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4pxv3")
+theme_override_font_sizes/font_size = 40
+text = "How do you like to write?"
+
+[node name="OptionButton" type="OptionButton" parent="Beginning Options/HFlowContainer"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Using Paper"
+popup/item_0/id = 0
+popup/item_1/text = "Using The Computer"
+popup/item_1/id = 1
+
+[node name="Label2" type="Label" parent="Beginning Options/HFlowContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4pxv3")
+theme_override_font_sizes/font_size = 40
+text = "Are you able to listen to audio?"
+
+[node name="OptionButton2" type="OptionButton" parent="Beginning Options/HFlowContainer"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Yes"
+popup/item_0/id = 0
+popup/item_1/text = "No"
+popup/item_1/id = 1
+
+[node name="HSeparator" type="HSeparator" parent="Beginning Options/HFlowContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="Continue" type="Button" parent="Beginning Options/HFlowContainer"]
+layout_mode = 2
+text = "Nice. Save Options!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Beginning Options"]
+libraries = {
+"": SubResource("AnimationLibrary_ll6ix")
+}
+
+[connection signal="pressed" from="Beginning Options/HFlowContainer/Continue" to="Beginning Options" method="_back_to_menu"]

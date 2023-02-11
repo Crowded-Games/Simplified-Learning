@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=3 uid="uid://k8egubxgnyna"]
+
+[ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_0royd"]
+[ext_resource type="Script" path="res://Code/main_menu.gd" id="1_2pk1o"]
+[ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="2_kxx44"]
+
+[sub_resource type="Gradient" id="Gradient_gtjcu"]
+colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_arsgt"]
+gradient = SubResource("Gradient_gtjcu")
+fill_from = Vector2(0, 0.00458716)
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2pk1o")
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(575.992, 324.007)
+rotation = 1.5708
+scale = Vector2(10.1252, 17.9997)
+texture = SubResource("GradientTexture2D_arsgt")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background"]
+position = Vector2(1321, 300)
+rotation = 3.14159
+amount = 4
+lifetime = 30.0
+preprocess = 20.0
+texture = ExtResource("1_0royd")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 300)
+spread = 5.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+scale_amount_min = 0.4
+scale_amount_max = 0.4
+color = Color(0.137255, 0.0509804, 0.337255, 1)
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 2
+offset_left = 943.0
+offset_top = 66.0
+offset_right = 1149.0
+offset_bottom = 136.0
+theme_override_fonts/font = ExtResource("2_kxx44")
+theme_override_font_sizes/font_size = 45
+text = "Start Studying"
+
+[node name="Editor" type="Button" parent="."]
+layout_mode = 2
+offset_left = 943.0
+offset_top = 135.0
+offset_right = 1149.0
+offset_bottom = 205.0
+theme_override_fonts/font = ExtResource("2_kxx44")
+theme_override_font_sizes/font_size = 40
+text = "Card Editor"
+
+[node name="Settings" type="Button" parent="."]
+layout_mode = 2
+offset_left = 943.0
+offset_top = 204.0
+offset_right = 1149.0
+offset_bottom = 274.0
+theme_override_fonts/font = ExtResource("2_kxx44")
+theme_override_font_sizes/font_size = 35
+text = "Settings"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 2
+offset_left = 943.0
+offset_top = 273.0
+offset_right = 1149.0
+offset_bottom = 343.0
+theme_override_fonts/font = ExtResource("2_kxx44")
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 88.0
+offset_right = 544.0
+offset_bottom = 347.0
+theme_override_fonts/normal_font = ExtResource("2_kxx44")
+theme_override_font_sizes/normal_font_size = 60
+text = "Welcome To My Studying Tool!
+
+Use Without Caution."
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Editor" to="." method="_on_editor_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
