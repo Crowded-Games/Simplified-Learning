@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Simplified Learning"
+run/main_scene="res://Scene/main_menu.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://Images/icon.svg"
+
+[editor]
+
+movie_writer/fps=90
 
 [rendering]
 

@@ -1,4 +1,13 @@
-[gd_scene format=3 uid="uid://dw7e0bwkua5rq"]
+[gd_scene load_steps=4 format=3 uid="uid://dw7e0bwkua5rq"]
+
+[ext_resource type="Script" path="res://Code/editor.gd" id="1_butje"]
+
+[sub_resource type="Gradient" id="Gradient_gtjcu"]
+colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g6gy4"]
+gradient = SubResource("Gradient_gtjcu")
+fill_from = Vector2(0, 0.00458716)
 
 [node name="Editor" type="Control"]
 layout_mode = 3
@@ -7,3 +16,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_butje")
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(575.992, 324.007)
+rotation = 1.5708
+scale = Vector2(10.1252, 17.9997)
+texture = SubResource("GradientTexture2D_g6gy4")

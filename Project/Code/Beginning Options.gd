@@ -8,9 +8,9 @@ extends CenterContainer
 func _ready():
 	# For the settings menu
 	if FileAccess.file_exists("res://settings.txt"):
-		var data = load_setting()
-		Option1._select_int(int(data.substr(0, 1)))
-		Option2._select_int(int(data.substr(1, 2)))
+		var file = FileAccess.open("res://settings.txt", FileAccess.READ)
+		Option1._select_int(int(file.get_line()))
+		Option2._select_int(int(file.get_line()))
 
 func _on_continue_pressed():
 	# the more options I add the bigger this IF statement gets.
@@ -27,11 +27,7 @@ func _on_happyness_show_options():
 # Saving the settings
 func save_setting():
 	var file = FileAccess.open("res://settings.txt", FileAccess.WRITE)
-	file.store_string(str(Option1.get_selected()))
-	file.store_string(str(Option2.get_selected()))
+	# I opted to use line since it makes it easier to get strings, ints, floats, and others
+	file.store_line(str(Option1.get_selected()))
+	file.store_line(str(Option2.get_selected()))
 	file = null
-
-func load_setting():
-	var file = FileAccess.open("res://settings.txt", FileAccess.READ)
-	var content = file.get_as_text()
-	return content
