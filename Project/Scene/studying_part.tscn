@@ -52,6 +52,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu Menu"]
+layout_mode = 0
 offset_left = 69.0
 offset_top = 52.0
 offset_right = 562.0
@@ -61,24 +62,63 @@ theme_override_font_sizes/normal_font_size = 52
 text = "Lets begin your studying. Click a study set to begin."
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu Menu"]
+layout_mode = 0
 offset_left = 608.0
 offset_top = 38.0
 offset_right = 782.0
 offset_bottom = 78.0
 
 [node name="Back Button" type="Button" parent="Menu Menu"]
+layout_mode = 0
 offset_left = 202.0
 offset_top = 414.0
 offset_right = 294.0
 offset_bottom = 470.0
 scale = Vector2(1, 0.800001)
 theme_override_fonts/font = ExtResource("3_ac4pl")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 45
 text = "Go Back"
 
+[node name="Select Set" type="Button" parent="Menu Menu"]
+visible = false
+offset_left = 158.0
+offset_top = 472.0
+offset_right = 358.0
+offset_bottom = 555.0
+scale = Vector2(1, 0.800001)
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 55
+text = "Lock In Set"
+
 [node name="Flash Card" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Name" type="Label" parent="Flash Card"]
+layout_mode = 0
+offset_right = 102.0
+offset_bottom = 113.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 80
+text = "Name"
+
+[node name="ColorRect" type="ColorRect" parent="Flash Card"]
+layout_mode = 0
+offset_left = 358.0
+offset_top = 210.0
+offset_right = 758.0
+offset_bottom = 460.0
+color = Color(0.364706, 0.364706, 0.364706, 1)
+
+[node name="Term" type="Label" parent="Flash Card/ColorRect"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 112.0
+offset_right = 175.0
+offset_bottom = 138.0
+text = "Thing"
+
 [connection signal="pressed" from="Menu Menu/Back Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Menu Menu/Select Set" to="." method="_on_select_set_pressed"]
