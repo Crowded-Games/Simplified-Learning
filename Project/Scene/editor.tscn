@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw7e0bwkua5rq"]
+[gd_scene load_steps=5 format=3 uid="uid://dw7e0bwkua5rq"]
 
 [ext_resource type="Script" path="res://Code/editor.gd" id="1_butje"]
+[ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="2_8ydic"]
 
 [sub_resource type="Gradient" id="Gradient_gtjcu"]
 colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
@@ -17,6 +18,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_butje")
+Terms = PackedStringArray("")
+Descriptions = PackedStringArray("")
 
 [node name="Background" type="Node" parent="."]
 
@@ -26,3 +29,95 @@ position = Vector2(575.992, 324.007)
 rotation = 1.5708
 scale = Vector2(10.1252, 17.9997)
 texture = SubResource("GradientTexture2D_g6gy4")
+
+[node name="Term" type="Button" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 5.0
+offset_right = 544.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("2_8ydic")
+theme_override_font_sizes/font_size = 20
+text = "Add Term"
+
+[node name="Panel" type="Panel" parent="Term"]
+layout_mode = 0
+offset_left = -146.0
+offset_top = 37.0
+offset_right = 204.0
+offset_bottom = 537.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Term/Panel"]
+layout_mode = 0
+offset_right = 350.0
+offset_bottom = 500.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Term/Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="Description" type="Button" parent="."]
+offset_left = 884.0
+offset_top = 5.0
+offset_right = 986.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("2_8ydic")
+theme_override_font_sizes/font_size = 20
+text = "Add Description"
+
+[node name="Panel" type="Panel" parent="Description"]
+layout_mode = 0
+offset_left = -122.0
+offset_top = 37.0
+offset_right = 228.0
+offset_bottom = 537.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Description/Panel"]
+layout_mode = 0
+offset_right = 350.0
+offset_bottom = 500.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Description/Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="Title" type="LineEdit" parent="."]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("2_8ydic")
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Title Here"
+alignment = 1
+
+[node name="Save" type="Button" parent="."]
+offset_left = 91.0
+offset_top = 72.0
+offset_right = 199.0
+offset_bottom = 122.0
+theme_override_fonts/font = ExtResource("2_8ydic")
+theme_override_font_sizes/font_size = 30
+text = "Save Cards"
+
+[node name="Load" type="Button" parent="."]
+offset_left = 91.0
+offset_top = 144.0
+offset_right = 199.0
+offset_bottom = 194.0
+theme_override_fonts/font = ExtResource("2_8ydic")
+theme_override_font_sizes/font_size = 30
+text = "Load Cards"
+
+[node name="Back" type="Button" parent="."]
+offset_left = 28.0
+offset_top = 571.0
+offset_right = 136.0
+offset_bottom = 621.0
+theme_override_fonts/font = ExtResource("2_8ydic")
+theme_override_font_sizes/font_size = 30
+text = "Go Back! GO BACK!!!"
+
+[connection signal="pressed" from="Term" to="." method="_on_term_pressed"]
+[connection signal="pressed" from="Description" to="." method="_on_description_pressed"]
+[connection signal="text_changed" from="Title" to="." method="_on_title_text_changed"]
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

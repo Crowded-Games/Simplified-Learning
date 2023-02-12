@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ced1bka0wqdmh"]
+[gd_scene load_steps=11 format=3 uid="uid://ced1bka0wqdmh"]
 
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_bdqdd"]
 [ext_resource type="Script" path="res://Code/studying_part.gd" id="1_qioo5"]
@@ -10,6 +10,127 @@ colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_2p3rm"]
 gradient = SubResource("Gradient_1x154")
 fill_from = Vector2(0, 0.00458716)
+
+[sub_resource type="Animation" id="Animation_smick"]
+resource_name = "Flip"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(358, 210), Vector2(361, 210), Vector2(358, 210)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"flip"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ixd12"]
+resource_name = "Left"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.5708, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(140, 83), Vector2(358, 210)]
+}
+
+[sub_resource type="Animation" id="Animation_5sbxv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(361, 210)]
+}
+
+[sub_resource type="Animation" id="Animation_cprao"]
+resource_name = "Right"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(581, 87), Vector2(358, 210)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5708, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hmm7w"]
+_data = {
+"Flip": SubResource("Animation_smick"),
+"Left": SubResource("Animation_ixd12"),
+"RESET": SubResource("Animation_5sbxv"),
+"Right": SubResource("Animation_cprao")
+}
 
 [node name="Studying Part" type="Control"]
 layout_mode = 3
@@ -107,10 +228,11 @@ text = "Name"
 
 [node name="ColorRect" type="ColorRect" parent="Flash Card"]
 layout_mode = 0
-offset_left = 358.0
+offset_left = 361.0
 offset_top = 210.0
-offset_right = 758.0
+offset_right = 761.0
 offset_bottom = 460.0
+pivot_offset = Vector2(200, 125)
 color = Color(0.364706, 0.364706, 0.364706, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="Flash Card/ColorRect"]
@@ -157,6 +279,11 @@ offset_bottom = 586.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 45
 text = "Alright, Im Done!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Flash Card"]
+libraries = {
+"": SubResource("AnimationLibrary_hmm7w")
+}
 
 [connection signal="pressed" from="Menu Menu/Back Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Menu Menu/Select Set" to="." method="_on_select_set_pressed"]

@@ -34,8 +34,9 @@ var description: PackedStringArray
 
 var term_number = 0
 @onready var term_object = get_node("Flash Card/ColorRect/CenterContainer/Label")
-
 var flipped = false
+
+@onready var card_animator = get_node("Flash Card/AnimationPlayer")
 
 func _on_select_set_pressed():
 	var file = FileAccess.open("res://Set" + str(selected_number) + ".txt", FileAccess.READ)
@@ -56,18 +57,30 @@ func _on_select_set_pressed():
 	term_object.set("text", terms[0])
 
 func _on_left_pressed():
+	if card_animator.is_playing():
+		return
 	term_number -= 1
 	if term_number < 0:
 		term_number = terms.size() - 1
 	term_object.set("text", terms[term_number])
+	flipped = false
+	card_animator.play("Left")
 
 func _on_right_pressed():
+	if card_animator.is_playing():
+		return
 	term_number += 1
 	if term_number > terms.size() - 1:
 		term_number = 0
 	term_object.set("text", terms[term_number])
+	flipped = false
+	card_animator.play("Right")
 
 func _on_flip_pressed():
+	if !card_animator.is_playing():
+		card_animator.play("Flip")
+
+func flip():
 	if flipped == false:
 		term_object.set("text", description[term_number])
 	else:
