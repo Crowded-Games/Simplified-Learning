@@ -62,6 +62,7 @@ theme_override_font_sizes/font_size = 20
 placeholder_text = "Type here to add a potential term"
 
 [node name="Description" type="Button" parent="."]
+layout_mode = 0
 offset_left = 736.0
 offset_top = 10.0
 offset_right = 838.0
@@ -85,6 +86,7 @@ offset_bottom = 500.0
 layout_mode = 2
 
 [node name="DescriptionEdit" type="LineEdit" parent="Description"]
+layout_mode = 0
 offset_left = 102.0
 offset_top = -1.0
 offset_right = 350.0
@@ -103,6 +105,7 @@ placeholder_text = "Title Here"
 alignment = 1
 
 [node name="Save" type="Button" parent="."]
+layout_mode = 0
 offset_left = 91.0
 offset_top = 72.0
 offset_right = 199.0
@@ -112,6 +115,7 @@ theme_override_font_sizes/font_size = 30
 text = "Save Cards"
 
 [node name="Load" type="Button" parent="."]
+layout_mode = 0
 offset_left = 90.0
 offset_top = 186.0
 offset_right = 198.0
@@ -131,6 +135,7 @@ theme_override_font_sizes/font_size = 30
 placeholder_text = "Number Edit"
 
 [node name="Back" type="Button" parent="."]
+layout_mode = 0
 offset_left = 28.0
 offset_top = 571.0
 offset_right = 136.0

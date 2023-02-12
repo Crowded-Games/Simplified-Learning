@@ -14,19 +14,33 @@ func _on_term_edit_text_changed(new_text):
 	TermThing = new_text
 
 func _on_term_pressed():
+	# Stop nothing from going through
+	if TermThing == "":
+		return
+	# Add term label to the scene
 	var term = Label.new()
 	term.set("text", TermThing)
 	Terms.append(TermThing)
 	get_node("Term/Panel/ScrollContainer/VBoxContainer").add_child(term)
+	# Reset
+	get_node("Term/TermEdit").set("text", "")
+	TermThing = ""
 
 func _on_description_edit_text_changed(new_text):
 	DescriptionThing = new_text
 
 func _on_description_pressed():
+	# Stop nothing from going through
+	if DescriptionThing == "":
+		return
+	# Add description label to the scene
 	var description = Label.new()
 	description.set("text", DescriptionThing)
 	Descriptions.append(DescriptionThing)
 	get_node("Description/Panel/ScrollContainer/VBoxContainer").add_child(description)
+	# Reset
+	get_node("Description/DescriptionEdit").set("text", "")
+	DescriptionThing = ""
 
 func _on_save_pressed():
 	# Open a new file that does not exist so it doesn't overwrite stuff, then store the title
@@ -37,7 +51,6 @@ func _on_save_pressed():
 	file.store_line(Title)
 	# For every term, there should be a discription.
 	number = 0
-	print(Terms.size())
 	while Terms.size() != number:
 		file.store_line(Terms[number])
 		file.store_line(Descriptions[number])
@@ -53,15 +66,21 @@ func _on_load_pressed():
 		var current_line = file.get_line()
 		get_node("Title").set("text", current_line)
 		Title = current_line
-		
-		# WARNING: CURRENT CODE DOES NOT ADD LABELS TO THE PANELS.
+		current_line = file.get_line()
+		# Re-add the fun stuff
 		while current_line != "":
+			# Add terms to the term container
 			Terms.append(current_line)
+			var term = Label.new()
+			term.set("text", current_line)
+			get_node("Term/Panel/ScrollContainer/VBoxContainer").add_child(term)
 			current_line = file.get_line()
-			if current_line == "":
-				Descriptions.append("null")
-			else:
-				Descriptions.append(current_line)
+			# add descriptions to the description container
+			Descriptions.append(current_line)
+			var description = Label.new()
+			description.set("text", current_line)
+			get_node("Description/Panel/ScrollContainer/VBoxContainer").add_child(description)
+			# Restart to the beginning of the while loop
 			current_line = file.get_line()
 
 func _on_load_number_text_changed(new_text):
