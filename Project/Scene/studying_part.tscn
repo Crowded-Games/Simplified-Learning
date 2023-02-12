@@ -81,6 +81,7 @@ text = "Go Back"
 
 [node name="Select Set" type="Button" parent="Menu Menu"]
 visible = false
+layout_mode = 0
 offset_left = 158.0
 offset_top = 472.0
 offset_right = 358.0
@@ -112,13 +113,54 @@ offset_right = 758.0
 offset_bottom = 460.0
 color = Color(0.364706, 0.364706, 0.364706, 1)
 
-[node name="Term" type="Label" parent="Flash Card/ColorRect"]
+[node name="CenterContainer" type="CenterContainer" parent="Flash Card/ColorRect"]
 layout_mode = 0
-offset_left = 132.0
-offset_top = 112.0
-offset_right = 175.0
-offset_bottom = 138.0
-text = "Thing"
+offset_right = 398.0
+offset_bottom = 249.0
+
+[node name="Label" type="Label" parent="Flash Card/ColorRect/CenterContainer"]
+layout_mode = 2
+text = "testing testing"
+
+[node name="Flip" type="Button" parent="Flash Card/ColorRect"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 250.0
+
+[node name="Right" type="Button" parent="Flash Card"]
+layout_mode = 0
+offset_left = 766.0
+offset_top = 288.0
+offset_right = 794.0
+offset_bottom = 398.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 75
+text = ">"
+
+[node name="Left" type="Button" parent="Flash Card"]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 289.0
+offset_right = 351.0
+offset_bottom = 399.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 75
+text = "<"
+
+[node name="Back" type="Button" parent="Flash Card"]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 476.0
+offset_right = 675.0
+offset_bottom = 586.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 45
+text = "Alright, Im Done!"
 
 [connection signal="pressed" from="Menu Menu/Back Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Menu Menu/Select Set" to="." method="_on_select_set_pressed"]
+[connection signal="pressed" from="Flash Card/ColorRect/Flip" to="." method="_on_flip_pressed"]
+[connection signal="pressed" from="Flash Card/Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="Flash Card/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Flash Card/Back" to="." method="_on_back_button_pressed"]

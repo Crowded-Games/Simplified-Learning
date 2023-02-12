@@ -28,7 +28,14 @@ func _ready():
 		# Count up
 		number += 1
 
+# All the code below is regarding flash cards
 var terms: PackedStringArray
+var description: PackedStringArray
+
+var term_number = 0
+@onready var term_object = get_node("Flash Card/ColorRect/CenterContainer/Label")
+
+var flipped = false
 
 func _on_select_set_pressed():
 	var file = FileAccess.open("res://Set" + str(selected_number) + ".txt", FileAccess.READ)
@@ -37,7 +44,32 @@ func _on_select_set_pressed():
 	get_node("Menu Menu").set("visible", false)
 	get_node("Flash Card").set("visible", true)
 	# Now add those lovely terms onto that array
-	var next_term = file.get_line()
-	while next_term != "":
-		terms.append(next_term)
-		next_term = file.get_line()
+	var next_line = file.get_line()
+	while next_line != "":
+		terms.append(next_line)
+		next_line = file.get_line()
+		if next_line == "":
+			description.append("null")
+		else:
+			description.append(next_line)
+		next_line = file.get_line()
+	term_object.set("text", terms[0])
+
+func _on_left_pressed():
+	term_number -= 1
+	if term_number < 0:
+		term_number = terms.size() - 1
+	term_object.set("text", terms[term_number])
+
+func _on_right_pressed():
+	term_number += 1
+	if term_number > terms.size() - 1:
+		term_number = 0
+	term_object.set("text", terms[term_number])
+
+func _on_flip_pressed():
+	if flipped == false:
+		term_object.set("text", description[term_number])
+	else:
+		term_object.set("text", terms[term_number])
+	flipped = !flipped
