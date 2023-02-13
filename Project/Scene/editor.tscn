@@ -137,6 +137,7 @@ theme_override_font_sizes/font_size = 30
 placeholder_text = "Number Edit"
 
 [node name="Delete" type="Button" parent="."]
+layout_mode = 0
 offset_left = 37.0
 offset_top = 311.0
 offset_right = 257.0
@@ -146,6 +147,7 @@ theme_override_font_sizes/font_size = 30
 text = "Delete (Term and Desc)"
 
 [node name="DeleteNumber" type="LineEdit" parent="Delete"]
+layout_mode = 0
 offset_left = 45.0
 offset_top = -51.0
 offset_right = 164.0

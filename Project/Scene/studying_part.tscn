@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://ced1bka0wqdmh"]
+[gd_scene load_steps=16 format=3 uid="uid://ced1bka0wqdmh"]
 
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_bdqdd"]
 [ext_resource type="Script" path="res://Code/studying_part.gd" id="1_qioo5"]
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="3_ac4pl"]
+[ext_resource type="Script" path="res://Code/Flash Card.gd" id="4_nxkjb"]
 
 [sub_resource type="Gradient" id="Gradient_1x154"]
 colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
@@ -10,46 +11,6 @@ colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_2p3rm"]
 gradient = SubResource("Gradient_1x154")
 fill_from = Vector2(0, 0.00458716)
-
-[sub_resource type="Animation" id="Animation_qons2"]
-resource_name = "appear"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RichTextLabel:modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.1, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Back Button:modulate")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.4, 1.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("VBoxContainer:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.8, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1159, 38), Vector2(628, 38)]
-}
 
 [sub_resource type="Animation" id="Animation_h5pd0"]
 length = 0.001
@@ -112,6 +73,46 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qons2"]
+resource_name = "appear"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.1, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Back Button:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1159, 38), Vector2(628, 38)]
 }
 
 [sub_resource type="Animation" id="Animation_fwn8r"]
@@ -202,7 +203,7 @@ tracks/1/keys = {
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("..")
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -383,6 +384,7 @@ visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("4_nxkjb")
 
 [node name="Name" type="Label" parent="Flash Card"]
 layout_mode = 0
@@ -451,9 +453,15 @@ libraries = {
 "": SubResource("AnimationLibrary_hmm7w")
 }
 
+[node name="Writing Prompt" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="show_flash_card" from="." to="Flash Card" method="_on_studying_part_show_flash_card"]
 [connection signal="pressed" from="Menu Menu/Back Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Menu Menu/Select Set" to="." method="_on_select_set_pressed"]
-[connection signal="pressed" from="Flash Card/ColorRect/Flip" to="." method="_on_flip_pressed"]
-[connection signal="pressed" from="Flash Card/Right" to="." method="_on_right_pressed"]
-[connection signal="pressed" from="Flash Card/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Flash Card/ColorRect/Flip" to="Flash Card" method="_on_flip_pressed"]
+[connection signal="pressed" from="Flash Card/Right" to="Flash Card" method="_on_right_pressed"]
+[connection signal="pressed" from="Flash Card/Left" to="Flash Card" method="_on_left_pressed"]
 [connection signal="pressed" from="Flash Card/Back" to="." method="_on_back_button_pressed"]
