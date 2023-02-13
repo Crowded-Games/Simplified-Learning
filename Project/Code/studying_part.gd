@@ -31,12 +31,22 @@ func _ready():
 		# Count up
 		number += 1
 	menu_animation.play("appear")
+
 # These signals go to their scripts to do stuff
 signal show_flash_card
 
 signal show_writing_prompt
 
-# TO DO: MAKE THE SH## DISAPPEAR SO IT LOOKS GOOD.
 func _on_select_set_pressed():
-	emit_signal("show_flash_card", selected_number)
+	menu_animation.play("disappear")
+
+# once the bloody "disappear" animation is done, do this
+func show_the_studying():
+	# CHANGE THIS LATER SO IT PROPERLY RANDOMIZES
+	match(randi_range(1, 2)):
+		1:
+			emit_signal("show_flash_card", selected_number)
+		2:
+			emit_signal("show_writing_prompt", selected_number)
 	get_node("Menu Menu").set("visible", false)
+	
