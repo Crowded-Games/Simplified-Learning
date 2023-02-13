@@ -86,5 +86,18 @@ func _on_load_pressed():
 func _on_load_number_text_changed(new_text):
 	LoadSetNumber = int(new_text)
 
+var DeleteSetNumber = -1
+
+func _on_delete_number_text_changed(new_text):
+	DeleteSetNumber = int(new_text)
+
+func _on_delete_pressed():
+	var term_children = get_node("Term/Panel/ScrollContainer/VBoxContainer").get_children()
+	var description_children = get_node("Description/Panel/ScrollContainer/VBoxContainer").get_children()
+	term_children[DeleteSetNumber].queue_free()
+	description_children[DeleteSetNumber].queue_free()
+	Terms.remove_at(DeleteSetNumber)
+	Descriptions.remove_at(DeleteSetNumber)
+
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://Scene/main_menu.tscn")
