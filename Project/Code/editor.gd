@@ -92,8 +92,10 @@ func _on_delete_number_text_changed(new_text):
 	DeleteSetNumber = int(new_text)
 
 func _on_delete_pressed():
+	# Get the children to make it easier to delete them.
 	var term_children = get_node("Term/Panel/ScrollContainer/VBoxContainer").get_children()
 	var description_children = get_node("Description/Panel/ScrollContainer/VBoxContainer").get_children()
+	# Delete everything
 	term_children[DeleteSetNumber].queue_free()
 	description_children[DeleteSetNumber].queue_free()
 	Terms.remove_at(DeleteSetNumber)

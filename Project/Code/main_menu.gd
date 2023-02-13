@@ -9,18 +9,6 @@ func _ready():
 		get_tree().change_scene_to_file("res://Scene/welcome.tscn")
 	Animator.play("GetIn")
 
-func _on_start_pressed():
-	button(1)
-
-func _on_editor_pressed():
-	button(2)
-
-func _on_settings_pressed():
-	button(3)
-
-func _on_quit_pressed():
-	button(4)
-
 func button(number: int):
 	button_number = number
 	Animator.play("GetOut")
