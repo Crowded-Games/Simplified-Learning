@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://k8egubxgnyna"]
+[gd_scene load_steps=9 format=3 uid="uid://k8egubxgnyna"]
 
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_0royd"]
 [ext_resource type="Script" path="res://Code/main_menu.gd" id="1_2pk1o"]
@@ -10,6 +10,140 @@ colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_arsgt"]
 gradient = SubResource("Gradient_gtjcu")
 fill_from = Vector2(0, 0.00458716)
+
+[sub_resource type="Animation" id="Animation_vfihc"]
+resource_name = "GetIn"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Start:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1200, 66), Vector2(945, 66)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Editor:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1200, 135), Vector2(945, 135)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Settings:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1200, 204), Vector2(945, 204)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Quit:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.8, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1200, 273), Vector2(945, 273)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Title:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-550, 88), Vector2(0, 88)]
+}
+
+[sub_resource type="Animation" id="Animation_lud5r"]
+resource_name = "GetOut"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Start:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(945, 66), Vector2(1191, 66)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Editor:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(945, 135), Vector2(1191, 135)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Settings:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(945, 204), Vector2(1192, 204)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Quit:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.8, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(945, 273), Vector2(1191, 273)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Title:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 88), Vector2(-545, 88)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bwifi"]
+_data = {
+"GetIn": SubResource("Animation_vfihc"),
+"GetOut": SubResource("Animation_lud5r")
+}
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -48,9 +182,9 @@ color = Color(0.137255, 0.0509804, 0.337255, 1)
 
 [node name="Start" type="Button" parent="."]
 layout_mode = 2
-offset_left = 943.0
+offset_left = 1191.0
 offset_top = 66.0
-offset_right = 1149.0
+offset_right = 1397.0
 offset_bottom = 136.0
 theme_override_fonts/font = ExtResource("2_kxx44")
 theme_override_font_sizes/font_size = 45
@@ -58,9 +192,9 @@ text = "Start Studying"
 
 [node name="Editor" type="Button" parent="."]
 layout_mode = 2
-offset_left = 943.0
+offset_left = 1191.0
 offset_top = 135.0
-offset_right = 1149.0
+offset_right = 1397.0
 offset_bottom = 205.0
 theme_override_fonts/font = ExtResource("2_kxx44")
 theme_override_font_sizes/font_size = 40
@@ -68,9 +202,9 @@ text = "Card Editor"
 
 [node name="Settings" type="Button" parent="."]
 layout_mode = 2
-offset_left = 943.0
+offset_left = 1192.0
 offset_top = 204.0
-offset_right = 1149.0
+offset_right = 1398.0
 offset_bottom = 274.0
 theme_override_fonts/font = ExtResource("2_kxx44")
 theme_override_font_sizes/font_size = 35
@@ -78,9 +212,9 @@ text = "Settings"
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 2
-offset_left = 943.0
+offset_left = 1191.0
 offset_top = 273.0
-offset_right = 1149.0
+offset_right = 1397.0
 offset_bottom = 343.0
 theme_override_fonts/font = ExtResource("2_kxx44")
 theme_override_font_sizes/font_size = 30
@@ -88,15 +222,20 @@ text = "Quit"
 
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 1.0
+offset_left = -545.0
 offset_top = 88.0
-offset_right = 544.0
+offset_right = -2.0
 offset_bottom = 347.0
 theme_override_fonts/normal_font = ExtResource("2_kxx44")
 theme_override_font_sizes/normal_font_size = 60
 text = "Welcome To My Studying Tool!
 
 Use Without Caution."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bwifi")
+}
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Editor" to="." method="_on_editor_pressed"]

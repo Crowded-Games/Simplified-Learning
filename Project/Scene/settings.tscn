@@ -42,6 +42,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"back"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ll6ix"]
 _data = {
@@ -84,6 +98,7 @@ scale_amount_max = 0.4
 color = Color(0.137255, 0.0509804, 0.337255, 1)
 
 [node name="Beginning Options" type="CenterContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 271.0
 offset_right = 845.0

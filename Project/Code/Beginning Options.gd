@@ -11,14 +11,14 @@ func _ready():
 		var file = FileAccess.open("res://settings.txt", FileAccess.READ)
 		Option1._select_int(int(file.get_line()))
 		Option2._select_int(int(file.get_line()))
+		animator.play("appear")
 
 func _on_continue_pressed():
 	# the more options I add the bigger this IF statement gets.
 	if Option1.get_selected() != -1:
 		if Option2.get_selected() != -1:
 			save_setting()
-	# Back to the main menu
-	get_tree().change_scene_to_file("res://Scene/main_menu.tscn")
+	animator.play("disappear")
 
 # This is used for the WELCOME portion
 func _on_happyness_show_options():
@@ -31,3 +31,6 @@ func save_setting():
 	file.store_line(str(Option1.get_selected()))
 	file.store_line(str(Option2.get_selected()))
 	file = null
+
+func back():
+	get_tree().change_scene_to_file("res://Scene/main_menu.tscn")
