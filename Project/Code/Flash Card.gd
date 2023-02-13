@@ -27,6 +27,7 @@ func _on_studying_part_show_flash_card(selected_number):
 	term_object.set("text", terms[0])
 
 func _on_left_pressed():
+	# Don't want the animation to be interupted
 	if card_animator.is_playing():
 		return
 	term_number -= 1
@@ -37,6 +38,7 @@ func _on_left_pressed():
 	card_animator.play("Left")
 
 func _on_right_pressed():
+	# Don't want the animation to be interupted
 	if card_animator.is_playing():
 		return
 	term_number += 1
@@ -47,10 +49,12 @@ func _on_right_pressed():
 	card_animator.play("Right")
 
 func _on_flip_pressed():
+	# Don't want the animation to be interupted
 	if !card_animator.is_playing():
 		card_animator.play("Flip")
 
 func flip():
+	# Flip over to the other term
 	if flipped == false:
 		term_object.set("text", description[term_number])
 	else:

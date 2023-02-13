@@ -31,7 +31,7 @@ func _ready():
 		# Count up
 		number += 1
 	menu_animation.play("appear")
-
+# These signals go to their scripts to do stuff
 signal show_flash_card
 
 signal show_writing_prompt
