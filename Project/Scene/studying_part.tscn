@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://ced1bka0wqdmh"]
+[gd_scene load_steps=17 format=3 uid="uid://chovvnwswnup6"]
 
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_bdqdd"]
 [ext_resource type="Script" path="res://Code/studying_part.gd" id="1_qioo5"]
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="3_ac4pl"]
+[ext_resource type="AudioStream" uid="uid://opvfjpl8vdeh" path="res://Music/piano-moment-9835.mp3" id="3_roeoc"]
 [ext_resource type="Script" path="res://Code/Flash Card.gd" id="4_nxkjb"]
-[ext_resource type="Script" path="res://Scene/Writing Prompt.gd" id="5_whckq"]
+[ext_resource type="Script" path="res://Code/Writing Prompt.gd" id="5_g4gyo"]
 
 [sub_resource type="Gradient" id="Gradient_1x154"]
 colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
@@ -281,6 +282,11 @@ scale_amount_min = 0.4
 scale_amount_max = 0.4
 color = Color(0.137255, 0.0509804, 0.337255, 1)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background"]
+stream = ExtResource("3_roeoc")
+autoplay = true
+bus = &"Music"
+
 [node name="Menu Menu" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
@@ -410,7 +416,7 @@ visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("5_whckq")
+script = ExtResource("5_g4gyo")
 
 [node name="Name" type="Label" parent="Writing Prompt"]
 layout_mode = 0
@@ -436,6 +442,7 @@ theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 50
 
 [node name="Back" type="Button" parent="Writing Prompt"]
+layout_mode = 0
 offset_left = 445.0
 offset_top = 476.0
 offset_right = 675.0

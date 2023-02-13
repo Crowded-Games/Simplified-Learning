@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dw7e0bwkua5rq"]
+[gd_scene load_steps=6 format=3 uid="uid://dw7e0bwkua5rq"]
 
 [ext_resource type="Script" path="res://Code/editor.gd" id="1_butje"]
+[ext_resource type="AudioStream" uid="uid://dr1apnue4q3df" path="res://Music/forget-16026.mp3" id="2_0w78f"]
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="2_8ydic"]
 
 [sub_resource type="Gradient" id="Gradient_gtjcu"]
@@ -27,6 +28,11 @@ position = Vector2(575.992, 324.007)
 rotation = 1.5708
 scale = Vector2(10.1252, 17.9997)
 texture = SubResource("GradientTexture2D_g6gy4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background"]
+stream = ExtResource("2_0w78f")
+autoplay = true
+bus = &"Music"
 
 [node name="Term" type="Button" parent="."]
 layout_mode = 0

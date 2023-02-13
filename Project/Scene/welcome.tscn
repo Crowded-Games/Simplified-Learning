@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6c4sucgb0rk4"]
+[gd_scene load_steps=14 format=3 uid="uid://b6c4sucgb0rk4"]
 
 [ext_resource type="Script" path="res://Code/Welcome.gd" id="1_ao5ou"]
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_jcpuy"]
+[ext_resource type="AudioStream" uid="uid://pfhh126xxnru" path="res://Music/lonestar-136900.mp3" id="2_he46b"]
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="2_l6t5x"]
 [ext_resource type="Script" path="res://Code/Beginning Options.gd" id="4_5f3xt"]
 
@@ -198,6 +199,11 @@ initial_velocity_max = 50.0
 scale_amount_min = 0.4
 scale_amount_max = 0.4
 color = Color(0.137255, 0.0509804, 0.337255, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background"]
+stream = ExtResource("2_he46b")
+autoplay = true
+bus = &"Music"
 
 [node name="Happyness" type="Node" parent="."]
 script = ExtResource("1_ao5ou")

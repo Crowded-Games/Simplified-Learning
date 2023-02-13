@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgkvyc3omrg30"]
+[gd_scene load_steps=10 format=3 uid="uid://cgkvyc3omrg30"]
 
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_shjx3"]
+[ext_resource type="AudioStream" uid="uid://pfhh126xxnru" path="res://Music/lonestar-136900.mp3" id="2_1hybg"]
 [ext_resource type="Script" path="res://Code/Beginning Options.gd" id="2_jyq71"]
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="3_4pxv3"]
 
@@ -96,6 +97,11 @@ initial_velocity_max = 50.0
 scale_amount_min = 0.4
 scale_amount_max = 0.4
 color = Color(0.137255, 0.0509804, 0.337255, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background"]
+stream = ExtResource("2_1hybg")
+autoplay = true
+bus = &"Music"
 
 [node name="Beginning Options" type="CenterContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
