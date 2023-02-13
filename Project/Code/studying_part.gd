@@ -7,6 +7,7 @@ var number = 0
 var selected_number = 0
 var something_selected = false
 @onready var Lock_in_button = get_node("Menu Menu/Select Set")
+@onready var menu_animation = get_node("Menu Menu/AnimationPlayer")
 
 # This might be complicated, so lets take it slow.
 func _ready():
@@ -27,8 +28,9 @@ func _ready():
 		button.set("editor_description", str(number))
 		# Count up
 		number += 1
+	menu_animation.play("appear")
 
-# All the code below is regarding flash cards
+# All the code below is regarding flash card variables and the select script to go to flash cards
 var terms: PackedStringArray
 var description: PackedStringArray
 
@@ -37,7 +39,7 @@ var term_number = 0
 var flipped = false
 
 @onready var card_animator = get_node("Flash Card/AnimationPlayer")
-
+# TO DO: MAKE THE SH## DISAPPEAR SO IT LOOKS GOOD.
 func _on_select_set_pressed():
 	var file = FileAccess.open("res://Set" + str(selected_number) + ".txt", FileAccess.READ)
 	get_node("Flash Card/Name").set("text", file.get_line())
@@ -55,7 +57,7 @@ func _on_select_set_pressed():
 			description.append(next_line)
 		next_line = file.get_line()
 	term_object.set("text", terms[0])
-
+# All the code below is regarding flash cards
 func _on_left_pressed():
 	if card_animator.is_playing():
 		return
