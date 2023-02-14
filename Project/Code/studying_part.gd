@@ -31,27 +31,14 @@ func _ready():
 		button.set("editor_description", str(number))
 		# Count up
 		number += 1
-	
 
-# These signals go to their scripts to do stuff
-signal show_flash_card
+signal show_between_text
 
-signal show_writing_prompt
-
-signal show_multiple_choice
-
+# This has a function in it!
 func _on_select_set_pressed():
 	menu_animation.play("disappear")
 
-# once the bloody "disappear" animation is done, do this
-func show_the_studying():
-	# CHANGE THIS LATER SO IT PROPERLY RANDOMIZES
-	match(randi_range(3, 3)):
-		1:
-			emit_signal("show_flash_card", selected_number)
-		2:
-			emit_signal("show_writing_prompt", selected_number)
-		3:
-			emit_signal("show_multiple_choice", selected_number)
+# For this to properly work in animation I guess...
+func signal_emit():
+	emit_signal("show_between_text", selected_number)
 	get_node("Menu Menu").set("visible", false)
-	

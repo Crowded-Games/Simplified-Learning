@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://chovvnwswnup6"]
+[gd_scene load_steps=25 format=3 uid="uid://c0dw65kfkwtou"]
 
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_bdqdd"]
 [ext_resource type="Script" path="res://Code/studying_part.gd" id="1_qioo5"]
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="3_ac4pl"]
 [ext_resource type="AudioStream" uid="uid://opvfjpl8vdeh" path="res://Music/piano-moment-9835.mp3" id="3_roeoc"]
+[ext_resource type="Script" path="res://Code/Between Text.gd" id="4_nrq84"]
 [ext_resource type="Script" path="res://Code/Flash Card.gd" id="4_nxkjb"]
 [ext_resource type="Script" path="res://Code/Writing Prompt.gd" id="5_g4gyo"]
 [ext_resource type="Script" path="res://Code/Multiple Choice.gd" id="7_p1p1v"]
@@ -117,7 +118,7 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"show_the_studying"
+"method": &"signal_emit"
 }]
 }
 
@@ -125,6 +126,65 @@ tracks/4/keys = {
 _data = {
 "appear": SubResource("Animation_qons2"),
 "disappear": SubResource("Animation_fwn8r")
+}
+
+[sub_resource type="Animation" id="Animation_bc4dh"]
+resource_name = "animation"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 0, 1), Color(0, 1, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show_the_studying"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8g7e8"]
+_data = {
+"animation": SubResource("Animation_bc4dh")
 }
 
 [sub_resource type="Animation" id="Animation_smick"]
@@ -510,6 +570,7 @@ offset_right = 1606.0
 offset_bottom = 78.0
 
 [node name="Back Button" type="Button" parent="Menu Menu"]
+modulate = Color(1, 1, 1, 0.571429)
 layout_mode = 0
 offset_left = 202.0
 offset_top = 414.0
@@ -535,6 +596,32 @@ text = "Lock In Set"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Menu Menu"]
 libraries = {
 "": SubResource("AnimationLibrary_0c014")
+}
+
+[node name="Between Text" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_nrq84")
+words = PackedStringArray("You are doing great, don\'t let anything stop you", "Wonderful, you are learning really well!", "This was a hard one, but you got through it.", "I see great things in your future. Keep at it!")
+
+[node name="Label" type="Label" parent="Between Text"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 65.0
+offset_right = 1088.0
+offset_bottom = 178.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 80
+text = "testing"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Between Text"]
+libraries = {
+"": SubResource("AnimationLibrary_8g7e8")
 }
 
 [node name="Flash Card" type="Control" parent="."]
@@ -746,11 +833,12 @@ libraries = {
 "": SubResource("AnimationLibrary_nirpu")
 }
 
-[connection signal="show_flash_card" from="." to="Flash Card" method="_on_studying_part_show_flash_card"]
-[connection signal="show_multiple_choice" from="." to="Multiple Choice" method="_on_studying_part_show_multiple_choice"]
-[connection signal="show_writing_prompt" from="." to="Writing Prompt" method="_on_studying_part_show_writing_prompt"]
+[connection signal="show_between_text" from="." to="Between Text" method="_on_studying_part_show_between_text"]
 [connection signal="pressed" from="Menu Menu/Back Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Menu Menu/Select Set" to="." method="_on_select_set_pressed"]
+[connection signal="show_flash_card" from="Between Text" to="Flash Card" method="show_flash_card"]
+[connection signal="show_multiple_choice" from="Between Text" to="Multiple Choice" method="show_multiple_choice"]
+[connection signal="show_writing_prompt" from="Between Text" to="Writing Prompt" method="show_writing_prompt"]
 [connection signal="pressed" from="Flash Card/ColorRect/Flip" to="Flash Card" method="_on_flip_pressed"]
 [connection signal="pressed" from="Flash Card/Right" to="Flash Card" method="_on_right_pressed"]
 [connection signal="pressed" from="Flash Card/Left" to="Flash Card" method="_on_left_pressed"]

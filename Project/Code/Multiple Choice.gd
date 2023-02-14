@@ -8,7 +8,7 @@ var description: PackedStringArray
 
 var current_number = 0
 
-func _on_studying_part_show_multiple_choice(selected_number):
+func show_multiple_choice(selected_number):
 	var file = FileAccess.open("res://Set" + str(selected_number) + ".txt", FileAccess.READ)
 	get_node("Name").set("text", file.get_line())
 	# Set visibility of stuff
