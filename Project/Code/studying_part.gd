@@ -15,6 +15,7 @@ var something_selected = false
 func _ready():
 	# In the future, the sets will increase from 0 to infinity. Loads of sets! it iterates through them until
 	# it hits a snag
+	menu_animation.play("appear")
 	while FileAccess.file_exists("res://Set" + str(number) + ".txt"):
 		# Open a file and create a new button. Set the text from the first line and add child to the VBoxContainer
 		var file = FileAccess.open("res://Set" + str(number) + ".txt", FileAccess.READ)
@@ -30,7 +31,7 @@ func _ready():
 		button.set("editor_description", str(number))
 		# Count up
 		number += 1
-	menu_animation.play("appear")
+	
 
 # These signals go to their scripts to do stuff
 signal show_flash_card
@@ -45,7 +46,7 @@ func _on_select_set_pressed():
 # once the bloody "disappear" animation is done, do this
 func show_the_studying():
 	# CHANGE THIS LATER SO IT PROPERLY RANDOMIZES
-	match(randi_range(1, 3)):
+	match(randi_range(3, 3)):
 		1:
 			emit_signal("show_flash_card", selected_number)
 		2:

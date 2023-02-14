@@ -25,6 +25,8 @@ func _on_studying_part_show_flash_card(selected_number):
 			description.append(next_line)
 		next_line = file.get_line()
 	term_object.set("text", terms[0])
+	
+	card_animator.play("appear")
 
 func _on_left_pressed():
 	# Don't want the animation to be interupted

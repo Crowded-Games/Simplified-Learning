@@ -6,6 +6,7 @@ var description: PackedStringArray
 var correct_things: Array
 
 @onready var term_object = get_node("Label")
+@onready var writing_animation = get_node("AnimationPlayer")
 
 var current_number = 0
 
@@ -29,6 +30,8 @@ func _on_studying_part_show_writing_prompt(selected_number):
 		next_line = file.get_line()
 	# NOW... load the first term
 	term_object.set("text", terms[0])
+	
+	writing_animation.play("appear")
 
 var green = 0
 var red = 0

@@ -4,6 +4,7 @@ var terms: PackedStringArray
 var description: PackedStringArray
 
 @onready var description_object = get_node("Description")
+@onready var choice_animator = get_node("AnimationPlayer")
 
 var current_number = 0
 
@@ -24,6 +25,8 @@ func _on_studying_part_show_multiple_choice(selected_number):
 		next_line = file.get_line()
 	description_object.set("text", description[0])
 	RedoAnswers()
+	
+	choice_animator.play("appear")
 
 # Button stuff for all 4 buttons
 func answer_pressed(answer_number: int):
