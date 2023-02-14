@@ -3,6 +3,8 @@ extends Control
 var terms: PackedStringArray
 var description: PackedStringArray
 
+var correct_things: Array
+
 @onready var term_object = get_node("Label")
 
 var current_number = 0
@@ -15,6 +17,9 @@ func _on_studying_part_show_writing_prompt(selected_number):
 	# Now add those lovely terms onto that array
 	var next_line = file.get_line()
 	while next_line != "":
+		# idk this is how you fill a bool array I guess...
+		correct_things.append(false)
+		# load them beutiful stuff.
 		terms.append(next_line)
 		next_line = file.get_line()
 		if next_line == "":
@@ -22,13 +27,26 @@ func _on_studying_part_show_writing_prompt(selected_number):
 		else:
 			description.append(next_line)
 		next_line = file.get_line()
+	# NOW... load the first term
 	term_object.set("text", terms[0])
+
+var green = 0
+var red = 0
+
+func _process(delta):
+	term_object.set("theme_override_colors/font_color", Color(red, green, 0, 1))
+	if red >= 0:
+		red -= (delta / 2)
+	if green >= 0:
+		green -= (delta / 2)
 
 func _on_answer_edit_text_submitted(new_text: String):
 	if new_text.to_upper() == description[current_number].to_upper():
-		print("correct!")
+		correct_things[current_number] = true
+		green += 1
 	else:
-		print("boo!")
+		correct_things[current_number] = false
+		red += 1
 	# quality of life feature
 	get_node("AnswerEdit").set("text", "")
 	# add a number and see if it goes over the terms

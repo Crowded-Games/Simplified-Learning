@@ -422,12 +422,17 @@ script = ExtResource("5_g4gyo")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.47451, 0.47451, 0.47451, 1)
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 50
+text = "Name"
 
 [node name="Label" type="Label" parent="Writing Prompt"]
 layout_mode = 0
 offset_top = 129.0
 offset_right = 1150.0
 offset_bottom = 228.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 70
 text = "test"
