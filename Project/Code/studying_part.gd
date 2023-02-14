@@ -1,6 +1,6 @@
 extends Control
 
-func _on_back_button_pressed():
+func Main_Menu():
 	get_tree().change_scene_to_file("res://Scene/main_menu.tscn")
 
 var number = 0

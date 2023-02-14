@@ -9,6 +9,7 @@ var description: PackedStringArray
 var current_number = 0
 
 func show_multiple_choice(selected_number):
+	choice_animator.play("appear")
 	var file = FileAccess.open("res://Set" + str(selected_number) + ".txt", FileAccess.READ)
 	get_node("Name").set("text", file.get_line())
 	# Set visibility of stuff
@@ -25,8 +26,6 @@ func show_multiple_choice(selected_number):
 		next_line = file.get_line()
 	description_object.set("text", description[0])
 	RedoAnswers()
-	
-	choice_animator.play("appear")
 
 # Button stuff for all 4 buttons
 func answer_pressed(answer_number: int):
@@ -37,6 +36,7 @@ func answer_pressed(answer_number: int):
 	# Now reset these dumb terms and descriptions :D
 	RedoAnswers()
 
+# This giant function is to shuffle the answers as well as set another question. Large :D
 func RedoAnswers():
 	# Increment to the next description
 	current_number += 1
@@ -82,3 +82,6 @@ func RedoAnswers():
 			get_node("Answer2").set("visible", false)
 			# Set text
 			get_node("Answer1").set("text", terms[0])
+
+func Back():
+	choice_animator.play("disappear")

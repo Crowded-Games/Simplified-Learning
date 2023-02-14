@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c0dw65kfkwtou"]
+[gd_scene load_steps=28 format=3 uid="uid://c0dw65kfkwtou"]
 
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_bdqdd"]
 [ext_resource type="Script" path="res://Code/studying_part.gd" id="1_qioo5"]
@@ -349,12 +349,90 @@ tracks/4/keys = {
 "values": [Vector2(358, -273), Vector2(358, 210)]
 }
 
+[sub_resource type="Animation" id="Animation_x6lft"]
+resource_name = "disappear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Right:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(766, 288), Vector2(766, -120)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Left:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(322, 289), Vector2(322, -121)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(358, 210), Vector2(358, -263)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Back:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(445, 476), Vector2(445, 663)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Name:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1000, 0)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Main_Menu"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hmm7w"]
 _data = {
 "Flip": SubResource("Animation_smick"),
 "Left": SubResource("Animation_ixd12"),
 "Right": SubResource("Animation_cprao"),
-"appear": SubResource("Animation_hl4te")
+"appear": SubResource("Animation_hl4te"),
+"disappear": SubResource("Animation_x6lft")
 }
 
 [sub_resource type="Animation" id="Animation_unkwf"]
@@ -409,9 +487,75 @@ tracks/3/keys = {
 "values": [Vector2(0, -75), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_gmcwi"]
+resource_name = "disappear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Name:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2, -76)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 129), Vector2(-1159, 129)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnswerEdit:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 369), Vector2(1204, 369)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Back:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(445, 476), Vector2(445, 658)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Main_Menu"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rkdum"]
 _data = {
-"appear": SubResource("Animation_unkwf")
+"appear": SubResource("Animation_unkwf"),
+"disappear": SubResource("Animation_gmcwi")
 }
 
 [sub_resource type="Animation" id="Animation_2gsr0"]
@@ -502,9 +646,112 @@ tracks/6/keys = {
 "values": [Vector2(0, -81), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_4sisl"]
+resource_name = "disappear"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Name:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.415686), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Description:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.478431), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Answer1:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.478431), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Answer2:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.478431), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Answer3:modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.478431), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Answer4:modulate")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.478431), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Back:modulate")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.478431), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("..")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Main_Menu"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nirpu"]
 _data = {
-"appear": SubResource("Animation_2gsr0")
+"appear": SubResource("Animation_2gsr0"),
+"disappear": SubResource("Animation_4sisl")
 }
 
 [node name="Studying Part" type="Control"]
@@ -599,6 +846,7 @@ libraries = {
 }
 
 [node name="Between Text" type="Control" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 0
 offset_right = 40.0
@@ -633,7 +881,8 @@ script = ExtResource("4_nxkjb")
 
 [node name="Name" type="Label" parent="Flash Card"]
 layout_mode = 0
-offset_right = 141.0
+offset_left = -1000.0
+offset_right = -859.0
 offset_bottom = 113.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 80
@@ -642,9 +891,9 @@ text = "Name"
 [node name="ColorRect" type="ColorRect" parent="Flash Card"]
 layout_mode = 0
 offset_left = 358.0
-offset_top = 210.0
+offset_top = -263.0
 offset_right = 758.0
-offset_bottom = 460.0
+offset_bottom = -13.0
 pivot_offset = Vector2(200, 125)
 color = Color(0.364706, 0.364706, 0.364706, 1)
 
@@ -666,9 +915,9 @@ offset_bottom = 250.0
 [node name="Right" type="Button" parent="Flash Card"]
 layout_mode = 0
 offset_left = 766.0
-offset_top = 288.0
+offset_top = -120.0
 offset_right = 794.0
-offset_bottom = 398.0
+offset_bottom = -9.99991
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 75
 text = ">"
@@ -676,9 +925,9 @@ text = ">"
 [node name="Left" type="Button" parent="Flash Card"]
 layout_mode = 0
 offset_left = 322.0
-offset_top = 289.0
+offset_top = -121.0
 offset_right = 351.0
-offset_bottom = 399.0
+offset_bottom = -11.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 75
 text = "<"
@@ -686,9 +935,9 @@ text = "<"
 [node name="Back" type="Button" parent="Flash Card"]
 layout_mode = 0
 offset_left = 445.0
-offset_top = 476.0
+offset_top = 663.0
 offset_right = 675.0
-offset_bottom = 586.0
+offset_bottom = 773.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 45
 text = "Alright, Im Done!"
@@ -707,8 +956,9 @@ script = ExtResource("5_g4gyo")
 
 [node name="Name" type="Label" parent="Writing Prompt"]
 layout_mode = 0
+offset_top = -75.0
 offset_right = 89.0
-offset_bottom = 72.0
+offset_bottom = -3.0
 theme_override_colors/font_color = Color(0.47451, 0.47451, 0.47451, 1)
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 50
@@ -716,9 +966,9 @@ text = "Name"
 
 [node name="Label" type="Label" parent="Writing Prompt"]
 layout_mode = 0
-offset_top = 129.0
+offset_top = -106.0
 offset_right = 1150.0
-offset_bottom = 228.0
+offset_bottom = -7.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 70
@@ -727,18 +977,18 @@ autowrap_mode = 1
 
 [node name="AnswerEdit" type="LineEdit" parent="Writing Prompt"]
 layout_mode = 0
-offset_top = 369.0
+offset_top = -88.0
 offset_right = 1151.0
-offset_bottom = 446.0
+offset_bottom = -11.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 50
 
 [node name="Back" type="Button" parent="Writing Prompt"]
 layout_mode = 0
 offset_left = 445.0
-offset_top = 476.0
+offset_top = -119.0
 offset_right = 675.0
-offset_bottom = 586.0
+offset_bottom = -9.00024
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 45
 text = "Alright, Im Done!"
@@ -757,9 +1007,8 @@ script = ExtResource("7_p1p1v")
 
 [node name="Name" type="Label" parent="Multiple Choice"]
 layout_mode = 0
-offset_top = -81.0
 offset_right = 89.0
-offset_bottom = -9.0
+offset_bottom = 72.0
 theme_override_colors/font_color = Color(0.47451, 0.47451, 0.47451, 1)
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 50
@@ -768,14 +1017,13 @@ text = "Name"
 [node name="Description" type="Label" parent="Multiple Choice"]
 layout_mode = 0
 offset_left = 289.0
-offset_top = -46.0
+offset_top = 192.0
 offset_right = 899.0
-offset_bottom = -16.0
+offset_bottom = 222.0
 text = "Testing Testing 123 123"
 horizontal_alignment = 1
 
 [node name="Answer1" type="Button" parent="Multiple Choice"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 286.0
 offset_top = 356.0
@@ -786,7 +1034,6 @@ theme_override_font_sizes/font_size = 35
 text = "Button 1"
 
 [node name="Answer2" type="Button" parent="Multiple Choice"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 596.0
 offset_top = 356.0
@@ -797,7 +1044,6 @@ theme_override_font_sizes/font_size = 35
 text = "Button 2"
 
 [node name="Answer3" type="Button" parent="Multiple Choice"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 286.0
 offset_top = 426.0
@@ -808,7 +1054,6 @@ theme_override_font_sizes/font_size = 35
 text = "Button 3"
 
 [node name="Answer4" type="Button" parent="Multiple Choice"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 596.0
 offset_top = 426.0
@@ -821,9 +1066,9 @@ text = "Button 4"
 [node name="Back" type="Button" parent="Multiple Choice"]
 layout_mode = 0
 offset_left = 467.0
-offset_top = 656.0
+offset_top = 518.0
 offset_right = 697.0
-offset_bottom = 766.0
+offset_bottom = 628.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 45
 text = "Alright, Im Done!"
@@ -842,11 +1087,11 @@ libraries = {
 [connection signal="pressed" from="Flash Card/ColorRect/Flip" to="Flash Card" method="_on_flip_pressed"]
 [connection signal="pressed" from="Flash Card/Right" to="Flash Card" method="_on_right_pressed"]
 [connection signal="pressed" from="Flash Card/Left" to="Flash Card" method="_on_left_pressed"]
-[connection signal="pressed" from="Flash Card/Back" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Flash Card/Back" to="Flash Card" method="Back"]
 [connection signal="text_submitted" from="Writing Prompt/AnswerEdit" to="Writing Prompt" method="_on_answer_edit_text_submitted"]
-[connection signal="pressed" from="Writing Prompt/Back" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Writing Prompt/Back" to="Writing Prompt" method="Back"]
 [connection signal="pressed" from="Multiple Choice/Answer1" to="Multiple Choice" method="answer_pressed" binds= [1]]
 [connection signal="pressed" from="Multiple Choice/Answer2" to="Multiple Choice" method="answer_pressed" binds= [2]]
 [connection signal="pressed" from="Multiple Choice/Answer3" to="Multiple Choice" method="answer_pressed" binds= [3]]
 [connection signal="pressed" from="Multiple Choice/Answer4" to="Multiple Choice" method="answer_pressed" binds= [4]]
-[connection signal="pressed" from="Multiple Choice/Back" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Multiple Choice/Back" to="." method="Main_Menu"]

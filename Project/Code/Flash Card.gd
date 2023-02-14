@@ -10,6 +10,7 @@ var flipped = false
 @onready var card_animator = get_node("AnimationPlayer")
 
 func show_flash_card(selected_number):
+	card_animator.play("appear")
 	var file = FileAccess.open("res://Set" + str(selected_number) + ".txt", FileAccess.READ)
 	get_node("Name").set("text", file.get_line())
 	# Set visibility of stuff
@@ -25,8 +26,6 @@ func show_flash_card(selected_number):
 			description.append(next_line)
 		next_line = file.get_line()
 	term_object.set("text", terms[0])
-	
-	card_animator.play("appear")
 
 func _on_left_pressed():
 	# Don't want the animation to be interupted
@@ -62,3 +61,7 @@ func flip():
 	else:
 		term_object.set("text", terms[term_number])
 	flipped = !flipped
+
+# When the back button is pressed
+func Back():
+	card_animator.play("disappear")

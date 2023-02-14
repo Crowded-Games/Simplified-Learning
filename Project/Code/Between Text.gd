@@ -16,7 +16,7 @@ signal show_multiple_choice
 # once the bloody "disappear" animation is done, do this
 func show_the_studying():
 	# CHANGE THIS LATER SO IT PROPERLY RANDOMIZES
-	match(randi_range(1, 3)):
+	match(randi_range(2, 2)):
 		1:
 			emit_signal("show_flash_card", selected_number)
 		2:

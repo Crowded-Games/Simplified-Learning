@@ -11,6 +11,7 @@ var correct_things: Array
 var current_number = 0
 
 func show_writing_prompt(selected_number):
+	writing_animation.play("appear")
 	var file = FileAccess.open("res://Set" + str(selected_number) + ".txt", FileAccess.READ)
 	get_node("Name").set("text", file.get_line())
 	# Set visibility of stuff
@@ -30,8 +31,6 @@ func show_writing_prompt(selected_number):
 		next_line = file.get_line()
 	# NOW... load the first term
 	term_object.set("text", terms[0])
-	
-	writing_animation.play("appear")
 
 var green = 0
 var red = 0
@@ -58,3 +57,7 @@ func _on_answer_edit_text_submitted(new_text: String):
 		current_number = 0
 	# Now display it!
 	term_object.set("text", terms[current_number])
+
+# On back button pressed
+func Back():
+	writing_animation.play("disappear")
