@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://opvfjpl8vdeh" path="res://Music/piano-moment-9835.mp3" id="3_roeoc"]
 [ext_resource type="Script" path="res://Code/Flash Card.gd" id="4_nxkjb"]
 [ext_resource type="Script" path="res://Code/Writing Prompt.gd" id="5_g4gyo"]
+[ext_resource type="Script" path="res://Code/Multiple Choice.gd" id="7_p1p1v"]
 
 [sub_resource type="Gradient" id="Gradient_1x154"]
 colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
@@ -196,21 +197,6 @@ tracks/1/keys = {
 "values": [Vector2(140, 83), Vector2(358, 210)]
 }
 
-[sub_resource type="Animation" id="Animation_5sbxv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(361, 210)]
-}
-
 [sub_resource type="Animation" id="Animation_cprao"]
 resource_name = "Right"
 length = 0.3
@@ -243,7 +229,6 @@ tracks/1/keys = {
 _data = {
 "Flip": SubResource("Animation_smick"),
 "Left": SubResource("Animation_ixd12"),
-"RESET": SubResource("Animation_5sbxv"),
 "Right": SubResource("Animation_cprao")
 }
 
@@ -354,9 +339,9 @@ text = "Name"
 
 [node name="ColorRect" type="ColorRect" parent="Flash Card"]
 layout_mode = 0
-offset_left = 361.0
+offset_left = 358.0
 offset_top = 210.0
-offset_right = 761.0
+offset_right = 758.0
 offset_bottom = 460.0
 pivot_offset = Vector2(200, 125)
 color = Color(0.364706, 0.364706, 0.364706, 1)
@@ -456,7 +441,78 @@ theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 45
 text = "Alright, Im Done!"
 
+[node name="Multiple Choice" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_p1p1v")
+
+[node name="Name" type="Label" parent="Multiple Choice"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.47451, 0.47451, 0.47451, 1)
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 50
+text = "Name"
+
+[node name="Description" type="Label" parent="Multiple Choice"]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 192.0
+offset_right = 899.0
+offset_bottom = 222.0
+text = "Testing Testing 123 123"
+horizontal_alignment = 1
+
+[node name="Answer1" type="Button" parent="Multiple Choice"]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 356.0
+offset_right = 586.0
+offset_bottom = 416.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 35
+text = "Button 1"
+
+[node name="Answer2" type="Button" parent="Multiple Choice"]
+offset_left = 596.0
+offset_top = 356.0
+offset_right = 896.0
+offset_bottom = 416.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 35
+text = "Button 2"
+
+[node name="Answer3" type="Button" parent="Multiple Choice"]
+offset_left = 286.0
+offset_top = 426.0
+offset_right = 586.0
+offset_bottom = 486.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 35
+text = "Button 3"
+
+[node name="Answer4" type="Button" parent="Multiple Choice"]
+offset_left = 596.0
+offset_top = 426.0
+offset_right = 896.0
+offset_bottom = 486.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 35
+text = "Button 4"
+
+[node name="Back" type="Button" parent="Multiple Choice"]
+offset_left = 467.0
+offset_top = 518.0
+offset_right = 697.0
+offset_bottom = 628.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 45
+text = "Alright, Im Done!"
+
 [connection signal="show_flash_card" from="." to="Flash Card" method="_on_studying_part_show_flash_card"]
+[connection signal="show_multiple_choice" from="." to="Multiple Choice" method="_on_studying_part_show_multiple_choice"]
 [connection signal="show_writing_prompt" from="." to="Writing Prompt" method="_on_studying_part_show_writing_prompt"]
 [connection signal="pressed" from="Menu Menu/Back Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Menu Menu/Select Set" to="." method="_on_select_set_pressed"]
@@ -466,3 +522,8 @@ text = "Alright, Im Done!"
 [connection signal="pressed" from="Flash Card/Back" to="." method="_on_back_button_pressed"]
 [connection signal="text_submitted" from="Writing Prompt/AnswerEdit" to="Writing Prompt" method="_on_answer_edit_text_submitted"]
 [connection signal="pressed" from="Writing Prompt/Back" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Multiple Choice/Answer1" to="Multiple Choice" method="answer_pressed" binds= [1]]
+[connection signal="pressed" from="Multiple Choice/Answer2" to="Multiple Choice" method="answer_pressed" binds= [2]]
+[connection signal="pressed" from="Multiple Choice/Answer3" to="Multiple Choice" method="answer_pressed" binds= [3]]
+[connection signal="pressed" from="Multiple Choice/Answer4" to="Multiple Choice" method="answer_pressed" binds= [4]]
+[connection signal="pressed" from="Multiple Choice/Back" to="." method="_on_back_button_pressed"]

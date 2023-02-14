@@ -37,16 +37,20 @@ signal show_flash_card
 
 signal show_writing_prompt
 
+signal show_multiple_choice
+
 func _on_select_set_pressed():
 	menu_animation.play("disappear")
 
 # once the bloody "disappear" animation is done, do this
 func show_the_studying():
 	# CHANGE THIS LATER SO IT PROPERLY RANDOMIZES
-	match(randi_range(1, 2)):
+	match(randi_range(1, 3)):
 		1:
 			emit_signal("show_flash_card", selected_number)
 		2:
 			emit_signal("show_writing_prompt", selected_number)
+		3:
+			emit_signal("show_multiple_choice", selected_number)
 	get_node("Menu Menu").set("visible", false)
 	
