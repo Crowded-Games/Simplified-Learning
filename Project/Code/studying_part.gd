@@ -1,8 +1,16 @@
 extends Control
 
-func Main_Menu():
-	get_tree().change_scene_to_file("res://Scene/main_menu.tscn")
+# Make sure this number is the same as "Between text"
+var signal_maximum = 3
 
+func Main_Menu():
+	if number != signal_maximum:
+		signal_emit()
+		number += 1
+	else:
+		get_tree().change_scene_to_file("res://Scene/main_menu.tscn")
+
+# number is a counter for anything I can think of, while selected_number is the set selected
 var number = 0
 var selected_number = 0
 
@@ -31,6 +39,7 @@ func _ready():
 		button.set("editor_description", str(number))
 		# Count up
 		number += 1
+	number = 1
 
 signal show_between_text
 
