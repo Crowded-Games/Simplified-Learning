@@ -2,7 +2,7 @@ extends Control
 
 # Make sure this number is the same as "Between text"
 var signal_maximum = 3
-
+# This is going to be saved and then we go to correct_mistake for the fun stuff.
 var wrong_terms: PackedStringArray
 var wrong_descriptions: PackedStringArray
 
@@ -14,6 +14,7 @@ func Main_Menu():
 		# Save all of these to a file. Why? Why not. Maybe in the future you can redo your old
 		# errors that you have committed.
 		var file = FileAccess.open("res://WrongTerms.txt", FileAccess.WRITE)
+		file.flush()
 		number = 0
 		while number < wrong_terms.size():
 			file.store_line(wrong_terms[number])
