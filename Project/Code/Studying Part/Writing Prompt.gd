@@ -32,8 +32,8 @@ func show_writing_prompt(selected_number):
 	# NOW... load the first term
 	term_object.set("text", terms[0])
 
-var green = 0
-var red = 0
+var green = 0.0
+var red = 0.0
 
 func _process(delta):
 	term_object.set("theme_override_colors/font_color", Color(red, green, 0, 1))

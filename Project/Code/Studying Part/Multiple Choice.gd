@@ -29,12 +29,22 @@ func show_multiple_choice(selected_number):
 
 # Button stuff for all 4 buttons
 func answer_pressed(answer_number: int):
-	if get_node("Answer" + str(answer_number)).get("text").to_upper() == terms[current_number].to_upper():
-		print("Correct!")
+	if get_node("Buttons/Answer" + str(answer_number)).get("text").to_upper() == terms[current_number].to_upper():
+		green += 1
 	else:
-		print("Wrong!")
+		red += 1
 	# Now reset these dumb terms and descriptions :D
 	RedoAnswers()
+
+var green = 0.0
+var red = 0.0
+# Reaction for the colors doing things
+func _process(delta):
+	get_node("Description").set("theme_override_colors/font_color", Color(red, green, 0, 1))
+	if red >= 0:
+		red -= (delta * 1.1)
+	if green >= 0:
+		green -= (delta * 1.1)
 
 # This giant function is to shuffle the answers as well as set another question. Large :D
 func RedoAnswers():
@@ -62,26 +72,26 @@ func RedoAnswers():
 			while counter_counter <= 2:
 				if random_counter > 2:
 					random_counter = 0
-				get_node("Answer" + str(counter_counter + 1)).set("text", terms[random_counter])
+				get_node("Buttons/Answer" + str(counter_counter + 1)).set("text", terms[random_counter])
 				# Increment both counters so it doesn't bug
 				random_counter += 1
 				counter_counter += 1
 		2:
-			get_node("Answer4").set("visible", false)
-			get_node("Answer3").set("visible", false)
+			get_node("Buttons/Answer4").set("visible", false)
+			get_node("Buttons/Answer3").set("visible", false)
 			# Set text
 			if randi_range(0,1) == 0:
-				get_node("Answer2").set("text", terms[0])
-				get_node("Answer1").set("text", terms[1])
+				get_node("Buttons/Answer2").set("text", terms[0])
+				get_node("Buttons/Answer1").set("text", terms[1])
 			else:
-				get_node("Answer1").set("text", terms[0])
-				get_node("Answer2").set("text", terms[1])
+				get_node("Buttons/Answer1").set("text", terms[0])
+				get_node("Buttons/Answer2").set("text", terms[1])
 		1:
-			get_node("Answer4").set("visible", false)
-			get_node("Answer3").set("visible", false)
-			get_node("Answer2").set("visible", false)
+			get_node("Buttons/Answer4").set("visible", false)
+			get_node("Buttons/Answer3").set("visible", false)
+			get_node("Buttons/Answer2").set("visible", false)
 			# Set text
-			get_node("Answer1").set("text", terms[0])
+			get_node("Buttons/Answer1").set("text", terms[0])
 
 func Back():
 	choice_animator.play("disappear")

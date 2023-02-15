@@ -1,19 +1,19 @@
-[gd_scene load_steps=28 format=3 uid="uid://c0dw65kfkwtou"]
+[gd_scene load_steps=28 format=3 uid="uid://b2my6e6h13o3p"]
 
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_bdqdd"]
 [ext_resource type="Script" path="res://Code/studying_part.gd" id="1_qioo5"]
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="3_ac4pl"]
 [ext_resource type="AudioStream" uid="uid://opvfjpl8vdeh" path="res://Music/piano-moment-9835.mp3" id="3_roeoc"]
-[ext_resource type="Script" path="res://Code/Between Text.gd" id="4_nrq84"]
-[ext_resource type="Script" path="res://Code/Flash Card.gd" id="4_nxkjb"]
-[ext_resource type="Script" path="res://Code/Writing Prompt.gd" id="5_g4gyo"]
-[ext_resource type="Script" path="res://Code/Multiple Choice.gd" id="7_p1p1v"]
+[ext_resource type="Script" path="res://Code/Studying Part/Between Text.gd" id="5_aybkm"]
+[ext_resource type="Script" path="res://Code/Studying Part/Flash Card.gd" id="6_50g71"]
+[ext_resource type="Script" path="res://Code/Studying Part/Writing Prompt.gd" id="7_ow8hj"]
+[ext_resource type="Script" path="res://Code/Studying Part/Multiple Choice.gd" id="8_e0glg"]
 
-[sub_resource type="Gradient" id="Gradient_1x154"]
+[sub_resource type="Gradient" id="Gradient_6cavt"]
 colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_2p3rm"]
-gradient = SubResource("Gradient_1x154")
+gradient = SubResource("Gradient_6cavt")
 fill_from = Vector2(0, 0.00458716)
 
 [sub_resource type="Animation" id="Animation_qons2"]
@@ -564,86 +564,50 @@ length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Answer1:modulate")
+tracks/0/path = NodePath("Back:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Answer2:modulate")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Answer3:modulate")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Answer4:modulate")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Back:position")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0.4, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(467, 656), Vector2(467, 518)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Description:position")
-tracks/5/interp = 2
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Description:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0.4, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(289, -46), Vector2(289, 192)]
+"values": [Vector2(289, -76), Vector2(289, 192)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Name:position")
-tracks/6/interp = 2
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Name:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0.7, 0.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, -81), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Buttons:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_4sisl"]
@@ -676,7 +640,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Answer1:modulate")
+tracks/2/path = NodePath("Back:modulate")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -685,22 +649,24 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.478431), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-tracks/3/type = "value"
+tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Answer2:modulate")
-tracks/3/interp = 2
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.478431), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Main_Menu"
+}]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Answer3:modulate")
+tracks/4/path = NodePath("Buttons:modulate")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -708,44 +674,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.478431), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Answer4:modulate")
-tracks/5/interp = 2
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.478431), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Back:modulate")
-tracks/6/interp = 2
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.478431), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/7/type = "method"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("..")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0.9),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"Main_Menu"
-}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nirpu"]
@@ -851,7 +779,7 @@ modulate = Color(1, 1, 1, 0)
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("4_nrq84")
+script = ExtResource("5_aybkm")
 words = PackedStringArray("You are doing great, don\'t let anything stop you", "Wonderful, you are learning really well!", "This was a hard one, but you got through it.", "I see great things in your future. Keep at it!")
 
 [node name="Label" type="Label" parent="Between Text"]
@@ -877,7 +805,7 @@ visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("4_nxkjb")
+script = ExtResource("6_50g71")
 
 [node name="Name" type="Label" parent="Flash Card"]
 layout_mode = 0
@@ -952,7 +880,7 @@ visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("5_g4gyo")
+script = ExtResource("7_ow8hj")
 
 [node name="Name" type="Label" parent="Writing Prompt"]
 layout_mode = 0
@@ -999,11 +927,10 @@ libraries = {
 }
 
 [node name="Multiple Choice" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("7_p1p1v")
+script = ExtResource("8_e0glg")
 
 [node name="Name" type="Label" parent="Multiple Choice"]
 layout_mode = 0
@@ -1018,14 +945,22 @@ text = "Name"
 [node name="Description" type="Label" parent="Multiple Choice"]
 layout_mode = 0
 offset_left = 289.0
-offset_top = -46.0
+offset_top = -76.0
 offset_right = 899.0
-offset_bottom = -16.0
+offset_bottom = -17.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 40
 text = "Testing Testing 123 123"
 horizontal_alignment = 1
 
-[node name="Answer1" type="Button" parent="Multiple Choice"]
+[node name="Buttons" type="Control" parent="Multiple Choice"]
 modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Answer1" type="Button" parent="Multiple Choice/Buttons"]
 layout_mode = 0
 offset_left = 286.0
 offset_top = 356.0
@@ -1035,8 +970,7 @@ theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 35
 text = "Button 1"
 
-[node name="Answer2" type="Button" parent="Multiple Choice"]
-modulate = Color(1, 1, 1, 0)
+[node name="Answer2" type="Button" parent="Multiple Choice/Buttons"]
 layout_mode = 0
 offset_left = 596.0
 offset_top = 356.0
@@ -1046,8 +980,7 @@ theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 35
 text = "Button 2"
 
-[node name="Answer3" type="Button" parent="Multiple Choice"]
-modulate = Color(1, 1, 1, 0)
+[node name="Answer3" type="Button" parent="Multiple Choice/Buttons"]
 layout_mode = 0
 offset_left = 286.0
 offset_top = 426.0
@@ -1057,8 +990,7 @@ theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 35
 text = "Button 3"
 
-[node name="Answer4" type="Button" parent="Multiple Choice"]
-modulate = Color(1, 1, 1, 0)
+[node name="Answer4" type="Button" parent="Multiple Choice/Buttons"]
 layout_mode = 0
 offset_left = 596.0
 offset_top = 426.0
@@ -1084,7 +1016,7 @@ libraries = {
 }
 
 [connection signal="show_between_text" from="." to="Between Text" method="_on_studying_part_show_between_text"]
-[connection signal="pressed" from="Menu Menu/Back Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Menu Menu/Back Button" to="." method="Main_Menu"]
 [connection signal="pressed" from="Menu Menu/Select Set" to="." method="_on_select_set_pressed"]
 [connection signal="show_flash_card" from="Between Text" to="Flash Card" method="show_flash_card"]
 [connection signal="show_multiple_choice" from="Between Text" to="Multiple Choice" method="show_multiple_choice"]
@@ -1095,8 +1027,8 @@ libraries = {
 [connection signal="pressed" from="Flash Card/Back" to="Flash Card" method="Back"]
 [connection signal="text_submitted" from="Writing Prompt/AnswerEdit" to="Writing Prompt" method="_on_answer_edit_text_submitted"]
 [connection signal="pressed" from="Writing Prompt/Back" to="Writing Prompt" method="Back"]
-[connection signal="pressed" from="Multiple Choice/Answer1" to="Multiple Choice" method="answer_pressed" binds= [1]]
-[connection signal="pressed" from="Multiple Choice/Answer2" to="Multiple Choice" method="answer_pressed" binds= [2]]
-[connection signal="pressed" from="Multiple Choice/Answer3" to="Multiple Choice" method="answer_pressed" binds= [3]]
-[connection signal="pressed" from="Multiple Choice/Answer4" to="Multiple Choice" method="answer_pressed" binds= [4]]
+[connection signal="pressed" from="Multiple Choice/Buttons/Answer1" to="Multiple Choice" method="answer_pressed" binds= [1]]
+[connection signal="pressed" from="Multiple Choice/Buttons/Answer2" to="Multiple Choice" method="answer_pressed" binds= [2]]
+[connection signal="pressed" from="Multiple Choice/Buttons/Answer3" to="Multiple Choice" method="answer_pressed" binds= [3]]
+[connection signal="pressed" from="Multiple Choice/Buttons/Answer4" to="Multiple Choice" method="answer_pressed" binds= [4]]
 [connection signal="pressed" from="Multiple Choice/Back" to="Multiple Choice" method="Back"]
