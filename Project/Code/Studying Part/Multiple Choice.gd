@@ -62,12 +62,12 @@ func RedoAnswers():
 			var temp_number = 1
 			# Set text
 			while temp_number <= terms.size():
-				get_node("Answer" + str(temp_number)).set("text", terms[randi_range(0, terms.size() - 1)])
+				get_node("Buttons/Answer" + str(temp_number)).set("text", terms[randi_range(0, terms.size() - 1)])
 				temp_number += 1
 			# Now set the answer!
-			get_node("Answer" + str(randi_range(1, 4))).set("text", terms[current_number])
+			get_node("Buttons/Answer" + str(randi_range(1, 4))).set("text", terms[current_number])
 		3:
-			get_node("Answer4").set("visible", false)
+			get_node("Buttons/Answer4").set("visible", false)
 			# Set text
 			var random_counter = randi_range(0, 2)
 			var counter_counter = 0
