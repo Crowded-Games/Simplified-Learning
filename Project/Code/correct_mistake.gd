@@ -1,5 +1,7 @@
 extends Control
 
+@onready var mistake_animator = get_node("AnimationPlayer")
+
 var Wrong_terms: PackedStringArray
 var Wrong_descriptions: PackedStringArray
 @export var middle_words: PackedStringArray
@@ -30,7 +32,8 @@ func _ready():
 		line = file.get_line()
 		Wrong_descriptions.append(line)
 		line = file.get_line()
-	RefreshLines()
+	mistake_animator.play("appear")
+	
 
 # Refreshes the whole thing so it don't do dumb stuff
 func RefreshLines():
@@ -38,12 +41,14 @@ func RefreshLines():
 		get_node("Term").set("text", Wrong_terms[0])
 		get_node("Middle Words").set("text", middle_words[randi_range(0, middle_words.size() - 1)])
 		get_node("Description").set("text", Wrong_descriptions[0])
+		# Abide by the settings!
 		if sound_setting == 0:
 			advice_random = randi_range(1, 2)
 		match advice_random:
 			1:
 				get_node("Advice").set("text", audio_advice[randi_range(0, audio_advice.size() - 1)])
 			2:
+				# Abide by the settings!
 				if writing_setting == 0:
 					get_node("Advice").set("text", "On your paper: " + writing_advice[randi_range(0, writing_advice.size() - 1)])
 				elif writing_setting == 1:
@@ -54,4 +59,4 @@ func RefreshLines():
 func _on_continue_pressed():
 	Wrong_terms.remove_at(0)
 	Wrong_descriptions.remove_at(0)
-	RefreshLines()
+	mistake_animator.play("refresh")
