@@ -6,6 +6,7 @@ var signal_number = 0
 var signal_maximum = 0
 
 @export var words: PackedStringArray
+
 # Get a random inspirational text
 func _ready():
 	get_node("Label").set("text", words[randi_range(0, words.size() - 1)])
@@ -20,7 +21,7 @@ signal show_multiple_choice
 # once the bloody "disappear" animation is done, do this
 func show_the_studying():
 	if signal_number == 0:
-		signal_number = randi_range(3, 3)
+		signal_number = randi_range(1, 3)
 	else:
 		signal_number += 1
 		if signal_number == signal_maximum + 1:
