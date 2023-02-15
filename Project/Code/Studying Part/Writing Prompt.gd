@@ -49,6 +49,9 @@ func _on_answer_edit_text_submitted(new_text: String):
 	else:
 		correct_things[current_number] = false
 		red += 1
+		# Save these to the wrong list for later
+		get_node(".").get_parent().wrong_terms.append(terms[current_number])
+		get_node(".").get_parent().wrong_descriptions.append(description[current_number])
 	# quality of life feature
 	get_node("AnswerEdit").set("text", "")
 	# add a number and see if it goes over the terms

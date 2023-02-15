@@ -3,12 +3,23 @@ extends Control
 # Make sure this number is the same as "Between text"
 var signal_maximum = 3
 
+var wrong_terms: PackedStringArray
+var wrong_descriptions: PackedStringArray
+
 func Main_Menu():
 	if number != signal_maximum:
 		signal_emit()
 		number += 1
 	else:
-		get_tree().change_scene_to_file("res://Scene/main_menu.tscn")
+		# Save all of these to a file. Why? Why not. Maybe in the future you can redo your old
+		# errors that you have committed.
+		var file = FileAccess.open("res://WrongTerms.txt", FileAccess.WRITE)
+		number = 0
+		while number < wrong_terms.size():
+			file.store_line(wrong_terms[number])
+			file.store_line(wrong_descriptions[number])
+			number += 1
+		get_tree().change_scene_to_file("res://Scene/correct_mistake.tscn")
 
 # number is a counter for anything I can think of, while selected_number is the set selected
 var number = 0

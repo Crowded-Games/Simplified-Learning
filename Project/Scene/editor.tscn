@@ -4,11 +4,11 @@
 [ext_resource type="AudioStream" uid="uid://dr1apnue4q3df" path="res://Music/forget-16026.mp3" id="2_0w78f"]
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="2_8ydic"]
 
-[sub_resource type="Gradient" id="Gradient_gtjcu"]
+[sub_resource type="Gradient" id="Gradient_765v7"]
 colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_g6gy4"]
-gradient = SubResource("Gradient_gtjcu")
+gradient = SubResource("Gradient_765v7")
 fill_from = Vector2(0, 0.00458716)
 
 [node name="Editor" type="Control"]

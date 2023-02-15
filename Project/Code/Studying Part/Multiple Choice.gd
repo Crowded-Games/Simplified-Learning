@@ -33,6 +33,9 @@ func answer_pressed(answer_number: int):
 		green += 1
 	else:
 		red += 1
+		# Save these to the wrong list for later
+		get_node(".").get_parent().wrong_terms.append(terms[current_number])
+		get_node(".").get_parent().wrong_descriptions.append(description[current_number])
 	# Now reset these dumb terms and descriptions :D
 	RedoAnswers()
 

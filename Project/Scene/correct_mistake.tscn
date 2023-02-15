@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2dv65smrmdih"]
+
+[ext_resource type="Script" path="res://Code/correct_mistake.gd" id="1_0hocy"]
+[ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_kplfm"]
+
+[sub_resource type="Gradient" id="Gradient_6cavt"]
+colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5n0wv"]
+gradient = SubResource("Gradient_6cavt")
+fill_from = Vector2(0, 0.00458716)
+
+[node name="Correct Mistake" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0hocy")
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(575.992, 324.007)
+rotation = 1.5708
+scale = Vector2(10.1252, 17.9997)
+texture = SubResource("GradientTexture2D_5n0wv")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background"]
+position = Vector2(1321, 300)
+rotation = 3.14159
+amount = 4
+lifetime = 30.0
+preprocess = 20.0
+texture = ExtResource("1_kplfm")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 300)
+spread = 5.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+scale_amount_min = 0.4
+scale_amount_max = 0.4
+color = Color(0.137255, 0.0509804, 0.337255, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background"]
+autoplay = true
+bus = &"Music"
