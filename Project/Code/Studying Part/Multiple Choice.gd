@@ -95,6 +95,3 @@ func RedoAnswers():
 			get_node("Buttons/Answer2").set("visible", false)
 			# Set text
 			get_node("Buttons/Answer1").set("text", terms[0])
-
-func Back():
-	choice_animator.play("disappear")

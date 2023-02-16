@@ -25,3 +25,5 @@ func _process(_delta):
 				get_tree().change_scene_to_file("res://Scene/settings.tscn")
 			4:
 				get_tree().quit()
+			5:
+				get_tree().change_scene_to_file("res://Scene/quiz_mode.tscn")
