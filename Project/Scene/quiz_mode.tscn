@@ -108,6 +108,7 @@ theme_override_font_sizes/font_size = 80
 text = "TRUE"
 
 [node name="False" type="Button" parent="."]
+layout_mode = 0
 offset_left = 765.0
 offset_top = 420.0
 offset_right = 922.0
@@ -126,6 +127,7 @@ text = "testing"
 horizontal_alignment = 1
 
 [node name="IS" type="Label" parent="."]
+layout_mode = 0
 offset_top = 69.0
 offset_right = 1152.0
 offset_bottom = 141.0
@@ -135,6 +137,7 @@ text = "IS"
 horizontal_alignment = 1
 
 [node name="Description" type="Label" parent="."]
+layout_mode = 0
 offset_top = 134.0
 offset_right = 1152.0
 offset_bottom = 206.0
@@ -148,5 +151,46 @@ libraries = {
 "": SubResource("AnimationLibrary_lw1m6")
 }
 
+[node name="Score" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Score"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1153.0
+offset_bottom = 649.0
+
+[node name="Correct" type="Label" parent="Score"]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 123.0
+offset_bottom = 172.0
+theme_override_fonts/font = ExtResource("4_iqkqm")
+theme_override_font_sizes/font_size = 50
+text = "Correct:"
+
+[node name="Wrong" type="Label" parent="Score"]
+offset_top = 300.0
+offset_right = 123.0
+offset_bottom = 372.0
+theme_override_fonts/font = ExtResource("4_iqkqm")
+theme_override_font_sizes/font_size = 50
+text = "Wrong:"
+
+[node name="Back" type="Button" parent="Score"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 475.0
+offset_right = 248.0
+offset_bottom = 620.0
+theme_override_fonts/font = ExtResource("4_iqkqm")
+theme_override_font_sizes/font_size = 100
+text = "Contnue"
+
 [connection signal="pressed" from="True" to="." method="TruthAndFalse" binds= [true]]
 [connection signal="pressed" from="False" to="." method="TruthAndFalse" binds= [false]]
+[connection signal="pressed" from="Score/Back" to="." method="_on_back_pressed"]

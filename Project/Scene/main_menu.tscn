@@ -251,6 +251,7 @@ theme_override_font_sizes/font_size = 30
 text = "Quit"
 
 [node name="Quiz" type="Button" parent="."]
+layout_mode = 0
 offset_left = -185.0
 offset_top = 445.0
 offset_right = -32.0
