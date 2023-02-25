@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsvv67lnhwear"]
+[gd_scene load_steps=9 format=3 uid="uid://dsvv67lnhwear"]
 
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_501ve"]
 [ext_resource type="Script" path="res://Code/QuizStuff.gd" id="1_rueab"]
+[ext_resource type="AudioStream" uid="uid://djdskq8k1mknw" path="res://Music/river-calm-and-relaxing-piano-music-114478.mp3" id="3_ks3rr"]
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="4_iqkqm"]
 
 [sub_resource type="Gradient" id="Gradient_p5ey2"]
@@ -93,7 +94,8 @@ scale_amount_min = 0.4
 scale_amount_max = 0.4
 color = Color(0.137255, 0.0509804, 0.337255, 1)
 
-[node name="Empty" type="AudioStreamPlayer" parent="Background"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background"]
+stream = ExtResource("3_ks3rr")
 autoplay = true
 bus = &"Music"
 
@@ -108,6 +110,7 @@ theme_override_font_sizes/font_size = 80
 text = "TRUE"
 
 [node name="False" type="Button" parent="."]
+layout_mode = 0
 offset_left = 765.0
 offset_top = 420.0
 offset_right = 922.0
@@ -126,6 +129,7 @@ text = "testing"
 horizontal_alignment = 1
 
 [node name="IS" type="Label" parent="."]
+layout_mode = 0
 offset_top = 69.0
 offset_right = 1152.0
 offset_bottom = 141.0
@@ -135,6 +139,7 @@ text = "IS"
 horizontal_alignment = 1
 
 [node name="Description" type="Label" parent="."]
+layout_mode = 0
 offset_top = 134.0
 offset_right = 1152.0
 offset_bottom = 206.0
