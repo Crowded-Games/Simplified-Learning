@@ -43,10 +43,14 @@ func NewStuff():
 				truth = false
 		number += 1
 	else:
-		get_node("Term").set("text", "")
-		get_node("Description").set("text", "")
+		# Set the stuff so it doesn't look wack.
+		get_node("Term").set("text", "N/A")
+		get_node("Description").set("text", "N/A")
+		# Set the numbers, mason. You know what they mean
+		get_node("Score/Correct").set("text", "Correct: " + str(correct))
+		get_node("Score/Wrong").set("text", "Wrong: " + str(wrong))
 		
-		get_tree().change_scene_to_file("res://Scene/main_menu.tscn")
+		get_node("Score").set("visible", true)
 
 func TruthAndFalse(thing: bool):
 	if truth == thing:
@@ -54,3 +58,7 @@ func TruthAndFalse(thing: bool):
 	else:
 		wrong += 1
 	get_node("AnimationPlayer").play("Refresh")
+
+# Go back to the main menu
+func _on_back_pressed():
+	get_tree().change_scene_to_file("res://Scene/main_menu.tscn")
