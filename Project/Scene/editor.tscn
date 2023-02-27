@@ -35,7 +35,7 @@ stream = ExtResource("2_0w78f")
 autoplay = true
 bus = &"Music"
 
-[node name="Term" type="Button" parent="."]
+[node name="Term" type="Label" parent="."]
 layout_mode = 0
 offset_left = 350.0
 offset_top = 10.0
@@ -43,8 +43,9 @@ offset_right = 700.0
 offset_bottom = 47.0
 theme_override_fonts/font = ExtResource("2_8ydic")
 theme_override_font_sizes/font_size = 20
-disabled = true
-text = "Terms Section"
+text = "Term Section"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Panel" type="Panel" parent="Term"]
 layout_mode = 0
@@ -60,19 +61,18 @@ offset_bottom = 500.0
 [node name="VBoxContainer" type="VBoxContainer" parent="Term/Panel/ScrollContainer"]
 layout_mode = 2
 
-[node name="Description" type="Button" parent="."]
-layout_mode = 0
+[node name="Description" type="Label" parent="."]
 offset_left = 736.0
 offset_top = 10.0
 offset_right = 1086.0
 offset_bottom = 47.0
 theme_override_fonts/font = ExtResource("2_8ydic")
 theme_override_font_sizes/font_size = 20
-disabled = true
 text = "Description Section"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Panel" type="Panel" parent="Description"]
-layout_mode = 0
 offset_top = 37.0
 offset_right = 350.0
 offset_bottom = 537.0

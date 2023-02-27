@@ -65,6 +65,8 @@ func _on_load_pressed():
 			term.name = "LineEdit" + str(TermNumber)
 			term.set_placeholder(str(TermNumber))
 			term.expand_to_text_length = true
+			term.add_theme_font_override("font", font)
+			term.add_theme_font_size_override("font", 20)
 			get_node("Term/Panel/ScrollContainer/VBoxContainer").add_child(term)
 			TermNumber += 1
 			current_line = file.get_line()
@@ -74,6 +76,8 @@ func _on_load_pressed():
 			description.name = "LineEdit" + str(DescriptionNumber)
 			description.set_placeholder(str(DescriptionNumber))
 			description.expand_to_text_length = true
+			description.add_theme_font_override("font", font)
+			description.add_theme_font_size_override("font", 20)
 			get_node("Description/Panel/ScrollContainer/VBoxContainer").add_child(description)
 			DescriptionNumber += 1
 			# Restart to the beginning of the while loop
