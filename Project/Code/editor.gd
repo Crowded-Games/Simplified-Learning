@@ -6,6 +6,8 @@ var DescriptionNumber = 0
 var Title = ""
 var EndingText = "THISISTHEENDDONOTDOANYTHINGAFTERTHIS"
 
+@export var font: Font
+
 func _on_title_text_changed(new_text):
 	Title = new_text
 
@@ -14,12 +16,18 @@ func Add_Line_Edits():
 	var term = LineEdit.new()
 	term.expand_to_text_length = true
 	term.name = "LineEdit" + str(TermNumber)
+	term.add_theme_font_override("font", font)
+	term.add_theme_font_size_override("font", 20)
+	term.set_placeholder(str(TermNumber))
 	TermNumber += 1
 	get_node("Term/Panel/ScrollContainer/VBoxContainer").add_child(term)
 	# Descriptions (right side)
 	var description = LineEdit.new()
 	description.expand_to_text_length = true
 	description.name = "LineEdit" + str(DescriptionNumber)
+	description.add_theme_font_override("font", font)
+	description.add_theme_font_size_override("font", 20)
+	description.set_placeholder(str(DescriptionNumber))
 	DescriptionNumber += 1
 	get_node("Description/Panel/ScrollContainer/VBoxContainer").add_child(description)
 
@@ -54,14 +62,20 @@ func _on_load_pressed():
 			# Add terms to the term container
 			var term = LineEdit.new()
 			term.set("text", current_line)
+			term.name = "LineEdit" + str(TermNumber)
+			term.set_placeholder(str(TermNumber))
 			term.expand_to_text_length = true
 			get_node("Term/Panel/ScrollContainer/VBoxContainer").add_child(term)
+			TermNumber += 1
 			current_line = file.get_line()
 			# add descriptions to the description container
 			var description = LineEdit.new()
 			description.set("text", current_line)
+			description.name = "LineEdit" + str(DescriptionNumber)
+			description.set_placeholder(str(DescriptionNumber))
 			description.expand_to_text_length = true
 			get_node("Description/Panel/ScrollContainer/VBoxContainer").add_child(description)
+			DescriptionNumber += 1
 			# Restart to the beginning of the while loop
 			current_line = file.get_line()
 
