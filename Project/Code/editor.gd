@@ -1,46 +1,27 @@
 extends Control
 
-@export var Terms: PackedStringArray
-@export var Descriptions: PackedStringArray
+var TermNumber = 0
+var DescriptionNumber = 0
 
 var Title = ""
-var TermThing = ""
-var DescriptionThing = ""
+var EndingText = "THISISTHEENDDONOTDOANYTHINGAFTERTHIS"
 
 func _on_title_text_changed(new_text):
 	Title = new_text
 
-func _on_term_edit_text_changed(new_text):
-	TermThing = new_text
-
-func _on_term_pressed():
-	# Stop nothing from going through
-	if TermThing == "":
-		return
-	# Add term label to the scene
-	var term = Label.new()
-	term.set("text", TermThing)
-	Terms.append(TermThing)
+func Add_Line_Edits():
+	# Terms (left side)
+	var term = LineEdit.new()
+	term.expand_to_text_length = true
+	term.name = "LineEdit" + str(TermNumber)
+	TermNumber += 1
 	get_node("Term/Panel/ScrollContainer/VBoxContainer").add_child(term)
-	# Reset
-	get_node("Term/TermEdit").set("text", "")
-	TermThing = ""
-
-func _on_description_edit_text_changed(new_text):
-	DescriptionThing = new_text
-
-func _on_description_pressed():
-	# Stop nothing from going through
-	if DescriptionThing == "":
-		return
-	# Add description label to the scene
-	var description = Label.new()
-	description.set("text", DescriptionThing)
-	Descriptions.append(DescriptionThing)
+	# Descriptions (right side)
+	var description = LineEdit.new()
+	description.expand_to_text_length = true
+	description.name = "LineEdit" + str(DescriptionNumber)
+	DescriptionNumber += 1
 	get_node("Description/Panel/ScrollContainer/VBoxContainer").add_child(description)
-	# Reset
-	get_node("Description/DescriptionEdit").set("text", "")
-	DescriptionThing = ""
 
 func _on_save_pressed():
 	# Open a new file that does not exist so it doesn't overwrite stuff, then store the title
@@ -51,10 +32,11 @@ func _on_save_pressed():
 	file.store_line(Title)
 	# For every term, there should be a discription.
 	number = 0
-	while Terms.size() != number:
-		file.store_line(Terms[number])
-		file.store_line(Descriptions[number])
+	while number != TermNumber:
+		file.store_line(get_node("Term/Panel/ScrollContainer/VBoxContainer/LineEdit" + str(number)).get("text"))
+		file.store_line(get_node("Description/Panel/ScrollContainer/VBoxContainer/LineEdit" + str(number)).get("text"))
 		number += 1
+	file.store_line(EndingText)
 	
 	file = null
 
@@ -68,17 +50,17 @@ func _on_load_pressed():
 		Title = current_line
 		current_line = file.get_line()
 		# Re-add the fun stuff
-		while current_line != "":
+		while current_line != EndingText:
 			# Add terms to the term container
-			Terms.append(current_line)
-			var term = Label.new()
+			var term = LineEdit.new()
 			term.set("text", current_line)
+			term.expand_to_text_length = true
 			get_node("Term/Panel/ScrollContainer/VBoxContainer").add_child(term)
 			current_line = file.get_line()
 			# add descriptions to the description container
-			Descriptions.append(current_line)
-			var description = Label.new()
+			var description = LineEdit.new()
 			description.set("text", current_line)
+			description.expand_to_text_length = true
 			get_node("Description/Panel/ScrollContainer/VBoxContainer").add_child(description)
 			# Restart to the beginning of the while loop
 			current_line = file.get_line()
@@ -98,8 +80,9 @@ func _on_delete_pressed():
 	# Delete everything
 	term_children[DeleteSetNumber].queue_free()
 	description_children[DeleteSetNumber].queue_free()
-	Terms.remove_at(DeleteSetNumber)
-	Descriptions.remove_at(DeleteSetNumber)
+	# Set back these numbers so it don't go ape
+	TermNumber -= 1
+	DescriptionNumber -= 1
 
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://Scene/main_menu.tscn")
