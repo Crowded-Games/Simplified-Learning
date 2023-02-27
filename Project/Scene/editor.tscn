@@ -154,6 +154,7 @@ theme_override_font_sizes/font_size = 30
 text = "Go Back! GO BACK!!!"
 
 [node name="Add Words" type="Button" parent="."]
+layout_mode = 0
 offset_left = 665.0
 offset_top = 555.0
 offset_right = 773.0

@@ -972,6 +972,7 @@ offset_bottom = 416.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 35
 text = "Button 1"
+text_overrun_behavior = 3
 
 [node name="Answer2" type="Button" parent="Multiple Choice/Buttons"]
 layout_mode = 0
@@ -982,6 +983,7 @@ offset_bottom = 416.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 35
 text = "Button 2"
+text_overrun_behavior = 3
 
 [node name="Answer3" type="Button" parent="Multiple Choice/Buttons"]
 layout_mode = 0
@@ -992,6 +994,7 @@ offset_bottom = 486.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 35
 text = "Button 3"
+text_overrun_behavior = 3
 
 [node name="Answer4" type="Button" parent="Multiple Choice/Buttons"]
 layout_mode = 0
@@ -1002,6 +1005,7 @@ offset_bottom = 486.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 35
 text = "Button 4"
+text_overrun_behavior = 3
 
 [node name="Back" type="Button" parent="Multiple Choice"]
 layout_mode = 0
