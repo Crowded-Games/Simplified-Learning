@@ -51,7 +51,7 @@ vertical_alignment = 1
 layout_mode = 0
 offset_top = 37.0
 offset_right = 350.0
-offset_bottom = 537.0
+offset_bottom = 626.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Term/Panel"]
 layout_mode = 0
@@ -62,6 +62,7 @@ offset_bottom = 500.0
 layout_mode = 2
 
 [node name="Description" type="Label" parent="."]
+layout_mode = 0
 offset_left = 736.0
 offset_top = 10.0
 offset_right = 1086.0
@@ -73,9 +74,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel" type="Panel" parent="Description"]
+layout_mode = 0
 offset_top = 37.0
 offset_right = 350.0
-offset_bottom = 537.0
+offset_bottom = 626.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Description/Panel"]
 layout_mode = 0
@@ -84,6 +86,16 @@ offset_bottom = 500.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Description/Panel/ScrollContainer"]
 layout_mode = 2
+
+[node name="Add Words" type="Button" parent="."]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 2.0
+offset_right = 758.0
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("2_8ydic")
+theme_override_font_sizes/font_size = 25
+text = "Add Words"
 
 [node name="Title" type="LineEdit" parent="."]
 layout_mode = 0
@@ -144,6 +156,34 @@ theme_override_fonts/font = ExtResource("2_8ydic")
 theme_override_font_sizes/font_size = 30
 placeholder_text = "Number Edit"
 
+[node name="Swap" type="Button" parent="."]
+offset_left = 37.0
+offset_top = 437.0
+offset_right = 257.0
+offset_bottom = 487.0
+theme_override_fonts/font = ExtResource("2_8ydic")
+theme_override_font_sizes/font_size = 30
+text = "Swap Term & Desc"
+
+[node name="Move To" type="LineEdit" parent="Swap"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = -51.0
+offset_right = 90.0
+offset_bottom = -1.0
+theme_override_fonts/font = ExtResource("2_8ydic")
+theme_override_font_sizes/font_size = 30
+placeholder_text = "To"
+
+[node name="Move From" type="LineEdit" parent="Swap"]
+offset_left = 128.0
+offset_top = -51.0
+offset_right = 192.0
+offset_bottom = -1.0
+theme_override_fonts/font = ExtResource("2_8ydic")
+theme_override_font_sizes/font_size = 30
+placeholder_text = "From"
+
 [node name="Back" type="Button" parent="."]
 layout_mode = 0
 offset_left = 28.0
@@ -154,21 +194,14 @@ theme_override_fonts/font = ExtResource("2_8ydic")
 theme_override_font_sizes/font_size = 30
 text = "Go Back! GO BACK!!!"
 
-[node name="Add Words" type="Button" parent="."]
-layout_mode = 0
-offset_left = 665.0
-offset_top = 555.0
-offset_right = 773.0
-offset_bottom = 605.0
-theme_override_fonts/font = ExtResource("2_8ydic")
-theme_override_font_sizes/font_size = 30
-text = "Add Words"
-
+[connection signal="pressed" from="Add Words" to="." method="Add_Line_Edits"]
 [connection signal="text_changed" from="Title" to="." method="_on_title_text_changed"]
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
 [connection signal="text_changed" from="Load/LoadNumber" to="." method="_on_load_number_text_changed"]
 [connection signal="pressed" from="Delete" to="." method="_on_delete_pressed"]
 [connection signal="text_changed" from="Delete/DeleteNumber" to="." method="_on_delete_number_text_changed"]
+[connection signal="pressed" from="Swap" to="." method="_on_swap_pressed"]
+[connection signal="text_changed" from="Swap/Move To" to="." method="_on_move_to_text_changed"]
+[connection signal="text_changed" from="Swap/Move From" to="." method="_on_move_from_text_changed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="Add Words" to="." method="Add_Line_Edits"]
