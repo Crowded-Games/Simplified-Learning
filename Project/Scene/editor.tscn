@@ -56,7 +56,7 @@ offset_bottom = 626.0
 [node name="ScrollContainer" type="ScrollContainer" parent="Term/Panel"]
 layout_mode = 0
 offset_right = 350.0
-offset_bottom = 500.0
+offset_bottom = 589.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Term/Panel/ScrollContainer"]
 layout_mode = 2
@@ -82,7 +82,7 @@ offset_bottom = 626.0
 [node name="ScrollContainer" type="ScrollContainer" parent="Description/Panel"]
 layout_mode = 0
 offset_right = 350.0
-offset_bottom = 500.0
+offset_bottom = 589.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Description/Panel/ScrollContainer"]
 layout_mode = 2
@@ -157,6 +157,7 @@ theme_override_font_sizes/font_size = 30
 placeholder_text = "Number Edit"
 
 [node name="Swap" type="Button" parent="."]
+layout_mode = 0
 offset_left = 37.0
 offset_top = 437.0
 offset_right = 257.0
@@ -176,6 +177,7 @@ theme_override_font_sizes/font_size = 30
 placeholder_text = "To"
 
 [node name="Move From" type="LineEdit" parent="Swap"]
+layout_mode = 0
 offset_left = 128.0
 offset_top = -51.0
 offset_right = 192.0

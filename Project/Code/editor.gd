@@ -13,25 +13,36 @@ var EndingText = "THISISTHEENDDONOTDOANYTHINGAFTERTHIS"
 func _on_title_text_changed(new_text):
 	Title = new_text
 
-func Add_Line_Edits():
-	# Terms (left side)
+# These next two functions are made so that way making stuff is easy
+func term_spawn(words: String):
 	var term = LineEdit.new()
 	term.expand_to_text_length = true
 	term.name = "LineEdit" + str(TermNumber)
+	term.set("text", words)
 	term.add_theme_font_override("font", font)
 	term.add_theme_font_size_override("font", 20)
 	term.set_placeholder(str(TermNumber))
-	TermNumber += 1
+	term.expand_to_text_length = true
 	TermNode.add_child(term)
-	# Descriptions (right side)
+	TermNumber += 1
+
+func description_spawn(words: String):
 	var description = LineEdit.new()
 	description.expand_to_text_length = true
 	description.name = "LineEdit" + str(DescriptionNumber)
+	description.set("text", words)
 	description.add_theme_font_override("font", font)
 	description.add_theme_font_size_override("font", 20)
 	description.set_placeholder(str(DescriptionNumber))
-	DescriptionNumber += 1
+	description.expand_to_text_length = true
 	DescriptionNode.add_child(description)
+	DescriptionNumber += 1
+
+func Add_Line_Edits():
+	# Terms (left side)
+	term_spawn("")
+	# Descriptions (right side)
+	description_spawn("")
 
 func _on_save_pressed():
 	# Open a new file that does not exist so it doesn't overwrite stuff, then store the title
@@ -66,26 +77,10 @@ func _on_load_pressed():
 		# Re-add the fun stuff
 		while current_line != EndingText:
 			# Add terms to the term container
-			var term = LineEdit.new()
-			term.set("text", current_line)
-			term.name = "LineEdit" + str(TermNumber)
-			term.set_placeholder(str(TermNumber))
-			term.expand_to_text_length = true
-			term.add_theme_font_override("font", font)
-			term.add_theme_font_size_override("font", 20)
-			TermNode.add_child(term)
-			TermNumber += 1
+			term_spawn(current_line)
 			current_line = file.get_line()
 			# add descriptions to the description container
-			var description = LineEdit.new()
-			description.set("text", current_line)
-			description.name = "LineEdit" + str(DescriptionNumber)
-			description.set_placeholder(str(DescriptionNumber))
-			description.expand_to_text_length = true
-			description.add_theme_font_override("font", font)
-			description.add_theme_font_size_override("font", 20)
-			DescriptionNode.add_child(description)
-			DescriptionNumber += 1
+			description_spawn(current_line)
 			# Restart to the beginning of the while loop
 			current_line = file.get_line()
 
@@ -108,8 +103,6 @@ func _on_delete_pressed():
 	TermNumber -= 1
 	DescriptionNumber -= 1
 
-# Below is movement stuff, so the person doesn't have to delete it. This might need to be changed...
-
 var MoveToNumber = -1
 var MoveFromNumber = -1
 
@@ -123,10 +116,28 @@ func _on_swap_pressed():
 	var ToNode
 	var FromNode
 	# Catch bullshit
-	if (MoveToNumber < TermNumber && MoveFromNumber < TermNumber) && (MoveToNumber != -1 && MoveFromNumber != -1):
+	if (MoveToNumber > TermNumber && MoveFromNumber > TermNumber) || MoveToNumber == -1 || MoveFromNumber == -1:
 		return
+	# Terms!
 	ToNode = TermNode.get_node("LineEdit" + str(MoveToNumber))
-	FromNode = TermNode.get_node("LineEdit" + str(MoveToNumber))
+	FromNode = TermNode.get_node("LineEdit" + str(MoveFromNumber))
+	Swap_Lines(ToNode, FromNode)
+	# Descriptions!
+	ToNode = DescriptionNode.get_node("LineEdit" + str(MoveToNumber))
+	FromNode = DescriptionNode.get_node("LineEdit" + str(MoveFromNumber))
+	Swap_Lines(ToNode, FromNode)
+
+func Swap_Lines(ToNode, FromNode):
+	ToNode.set_placeholder(str(MoveFromNumber))
+	FromNode.set_placeholder(str(MoveToNumber))
+	# get the parent of this node, so the move_child doesn't bug
+	ToNode.get_parent().move_child(ToNode, MoveFromNumber)
+	FromNode.get_parent().move_child(FromNode, MoveToNumber)
+	# Turn this one temp so it doesn't error out
+	FromNode.name = "temp"
+	# Do the renaming this time
+	ToNode.name = "LineEdit" + str(MoveFromNumber)
+	FromNode.name = "LineEdit" + str(MoveToNumber)
 
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://Scene/main_menu.tscn")
