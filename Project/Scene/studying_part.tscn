@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b2my6e6h13o3p"]
+[gd_scene load_steps=36 format=3 uid="uid://b2my6e6h13o3p"]
 
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_bdqdd"]
 [ext_resource type="Script" path="res://Code/studying_part.gd" id="1_qioo5"]
@@ -560,6 +560,58 @@ _data = {
 "disappear": SubResource("Animation_gmcwi")
 }
 
+[sub_resource type="Animation" id="Animation_2gsr0"]
+resource_name = "appear"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Description:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(289, -76), Vector2(289, 192)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Name:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -81), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
 [sub_resource type="Animation" id="Animation_4sisl"]
 resource_name = "disappear"
 length = 0.9
@@ -626,62 +678,62 @@ tracks/4/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_2gsr0"]
-resource_name = "appear"
-length = 0.9
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Description:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.4, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(289, -76), Vector2(289, 192)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Name:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.7, 0.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -81), Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Buttons:modulate")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nirpu"]
 _data = {
 "appear": SubResource("Animation_2gsr0"),
 "disappear": SubResource("Animation_4sisl")
+}
+
+[sub_resource type="Animation" id="Animation_6pyai"]
+resource_name = "appear"
+
+[sub_resource type="Animation" id="Animation_3fxse"]
+resource_name = "disappear"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Main_Menu"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_utrec"]
+_data = {
+"appear": SubResource("Animation_6pyai"),
+"disappear": SubResource("Animation_3fxse")
+}
+
+[sub_resource type="Animation" id="Animation_bise5"]
+resource_name = "appear"
+
+[sub_resource type="Animation" id="Animation_j4qlt"]
+resource_name = "disappear"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Main_Menu"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_42dmh"]
+_data = {
+"appear": SubResource("Animation_bise5"),
+"disappear": SubResource("Animation_j4qlt")
 }
 
 [node name="Studying Part" type="Control"]
@@ -1023,12 +1075,14 @@ libraries = {
 }
 
 [node name="Shape Clicker" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("9_0y64m")
 
 [node name="Name" type="Label" parent="Shape Clicker"]
+layout_mode = 0
 offset_top = -81.0
 offset_right = 89.0
 offset_bottom = -9.0
@@ -1038,6 +1092,7 @@ theme_override_font_sizes/font_size = 50
 text = "Name"
 
 [node name="Back" type="Button" parent="Shape Clicker"]
+layout_mode = 0
 offset_left = 467.0
 offset_top = 518.0
 offset_right = 697.0
@@ -1047,6 +1102,9 @@ theme_override_font_sizes/font_size = 45
 text = "Alright, Im Done!"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Shape Clicker"]
+libraries = {
+"": SubResource("AnimationLibrary_utrec")
+}
 
 [node name="Button Masher" type="Control" parent="."]
 anchors_preset = 0
@@ -1055,6 +1113,7 @@ offset_bottom = 40.0
 script = ExtResource("10_cs6mf")
 
 [node name="Name" type="Label" parent="Button Masher"]
+layout_mode = 0
 offset_top = -81.0
 offset_right = 89.0
 offset_bottom = -9.0
@@ -1063,16 +1122,62 @@ theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 50
 text = "Name"
 
+[node name="Term" type="Label" parent="Button Masher"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 106.0
+offset_right = 1045.0
+offset_bottom = 222.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 40
+text = "test :)"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Button1" type="Button" parent="Button Masher"]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 249.0
+offset_right = 803.0
+offset_bottom = 363.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 60
+text_overrun_behavior = 3
+
+[node name="Information" type="Label" parent="Button Masher"]
+offset_left = 338.0
+offset_top = 369.0
+offset_right = 769.0
+offset_bottom = 414.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 30
+text = "Press the button with the correct information"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Button2" type="Button" parent="Button Masher"]
+offset_left = 303.0
+offset_top = 420.0
+offset_right = 803.0
+offset_bottom = 534.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 60
+text_overrun_behavior = 3
+
 [node name="Back" type="Button" parent="Button Masher"]
-offset_left = 467.0
-offset_top = 518.0
-offset_right = 697.0
-offset_bottom = 628.0
+layout_mode = 0
+offset_left = 428.0
+offset_top = 567.0
+offset_right = 658.0
+offset_bottom = 637.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 45
 text = "Alright, Im Done!"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Button Masher"]
+libraries = {
+"": SubResource("AnimationLibrary_42dmh")
+}
 
 [connection signal="show_between_text" from="." to="Between Text" method="_on_studying_part_show_between_text"]
 [connection signal="pressed" from="Menu Menu/Back Button" to="." method="Main_Menu"]
@@ -1092,4 +1197,6 @@ text = "Alright, Im Done!"
 [connection signal="pressed" from="Multiple Choice/Buttons/Answer4" to="Multiple Choice" method="answer_pressed" binds= [4]]
 [connection signal="pressed" from="Multiple Choice/Back" to="Multiple Choice" method="Back"]
 [connection signal="pressed" from="Shape Clicker/Back" to="Shape Clicker" method="Back"]
+[connection signal="pressed" from="Button Masher/Button1" to="Button Masher" method="ButtonPress" binds= [1]]
+[connection signal="pressed" from="Button Masher/Button2" to="Button Masher" method="ButtonPress" binds= [2]]
 [connection signal="pressed" from="Button Masher/Back" to="Button Masher" method="Back"]
