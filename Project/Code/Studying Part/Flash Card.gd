@@ -8,6 +8,8 @@ var term_number = 0
 var flipped = false
 
 @onready var card_animator = get_node("AnimationPlayer")
+# Same as the editor
+var EndingText = "THISISTHEENDDONOTDOANYTHINGAFTERTHIS"
 
 func show_flash_card(selected_number):
 	card_animator.play("appear")
@@ -17,13 +19,10 @@ func show_flash_card(selected_number):
 	self.set("visible", true)
 	# Now add those lovely terms onto that array
 	var next_line = file.get_line()
-	while next_line != "":
+	while next_line != EndingText:
 		terms.append(next_line)
 		next_line = file.get_line()
-		if next_line == "":
-			description.append("null")
-		else:
-			description.append(next_line)
+		description.append(next_line)
 		next_line = file.get_line()
 	term_object.set("text", terms[0])
 

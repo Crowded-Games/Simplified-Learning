@@ -9,6 +9,8 @@ var correct_things: Array
 @onready var writing_animation = get_node("AnimationPlayer")
 
 var current_number = 0
+# Same as the editor
+var EndingText = "THISISTHEENDDONOTDOANYTHINGAFTERTHIS"
 
 func show_writing_prompt(selected_number):
 	writing_animation.play("appear")
@@ -18,16 +20,13 @@ func show_writing_prompt(selected_number):
 	self.set("visible", true)
 	# Now add those lovely terms onto that array
 	var next_line = file.get_line()
-	while next_line != "":
+	while next_line != EndingText:
 		# idk this is how you fill a bool array I guess...
 		correct_things.append(false)
 		# load them beutiful stuff.
 		terms.append(next_line)
 		next_line = file.get_line()
-		if next_line == "":
-			description.append("null")
-		else:
-			description.append(next_line)
+		description.append(next_line)
 		next_line = file.get_line()
 	# NOW... load the first term
 	term_object.set("text", terms[0])
