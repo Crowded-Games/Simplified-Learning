@@ -34,6 +34,10 @@ func show_the_studying():
 			emit_signal("show_writing_prompt", selected_number)
 		3:
 			emit_signal("show_multiple_choice", selected_number)
+		4:
+			emit_signal("show_shape_clicker", selected_number)
+		5:
+			emit_signal("show_button_masher", selected_number)
 
 # This is a reciever method from the study part.
 func _on_studying_part_show_between_text(num):

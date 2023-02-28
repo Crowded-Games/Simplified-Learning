@@ -8,13 +8,15 @@ var number = 0
 
 var correct = 0
 var wrong = 0
+# Same in the editor
+var EndingText = "THISISTHEENDDONOTDOANYTHINGAFTERTHIS"
 
 func _ready():
 	# Open the file and load, as per usual
 	var file = FileAccess.open("res://Set0.txt", FileAccess.READ)
 	var line = file.get_line()
 	line = file.get_line()
-	while line != "":
+	while line != EndingText:
 		Terms.append(line)
 		line = file.get_line()
 		Descriptions.append(line)

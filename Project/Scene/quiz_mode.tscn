@@ -176,6 +176,7 @@ theme_override_font_sizes/font_size = 50
 text = "Correct:"
 
 [node name="Wrong" type="Label" parent="Score"]
+layout_mode = 0
 offset_top = 300.0
 offset_right = 123.0
 offset_bottom = 372.0
