@@ -18,10 +18,14 @@ signal show_writing_prompt
 
 signal show_multiple_choice
 
+signal show_shape_clicker
+
+signal show_button_masher
+
 # once the bloody "disappear" animation is done, do this
 func show_the_studying():
 	if signal_number == 0:
-		signal_number = randi_range(1, 3)
+		signal_number = randi_range(5, 5)
 	else:
 		signal_number += 1
 		if signal_number == signal_maximum + 1:

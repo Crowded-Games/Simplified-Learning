@@ -1075,7 +1075,6 @@ libraries = {
 }
 
 [node name="Shape Clicker" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1107,6 +1106,7 @@ libraries = {
 }
 
 [node name="Button Masher" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1145,6 +1145,7 @@ theme_override_font_sizes/font_size = 60
 text_overrun_behavior = 3
 
 [node name="Information" type="Label" parent="Button Masher"]
+layout_mode = 0
 offset_left = 338.0
 offset_top = 369.0
 offset_right = 769.0
@@ -1156,6 +1157,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Button2" type="Button" parent="Button Masher"]
+layout_mode = 0
 offset_left = 303.0
 offset_top = 420.0
 offset_right = 803.0
@@ -1182,8 +1184,10 @@ libraries = {
 [connection signal="show_between_text" from="." to="Between Text" method="_on_studying_part_show_between_text"]
 [connection signal="pressed" from="Menu Menu/Back Button" to="." method="Main_Menu"]
 [connection signal="pressed" from="Menu Menu/Select Set" to="." method="_on_select_set_pressed"]
+[connection signal="show_button_masher" from="Between Text" to="Button Masher" method="show_button_masher"]
 [connection signal="show_flash_card" from="Between Text" to="Flash Card" method="show_flash_card"]
 [connection signal="show_multiple_choice" from="Between Text" to="Multiple Choice" method="show_multiple_choice"]
+[connection signal="show_shape_clicker" from="Between Text" to="Shape Clicker" method="show_shape_clicker"]
 [connection signal="show_writing_prompt" from="Between Text" to="Writing Prompt" method="show_writing_prompt"]
 [connection signal="pressed" from="Flash Card/ColorRect/Flip" to="Flash Card" method="_on_flip_pressed"]
 [connection signal="pressed" from="Flash Card/Right" to="Flash Card" method="_on_right_pressed"]

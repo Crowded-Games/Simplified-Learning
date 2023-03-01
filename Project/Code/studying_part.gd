@@ -1,7 +1,7 @@
 extends Control
 
 # Make sure this number is the same as "Between text"
-var signal_maximum = 3
+var signal_maximum = 5
 # This is going to be saved and then we go to correct_mistake for the fun stuff.
 var wrong_terms: PackedStringArray
 var wrong_descriptions: PackedStringArray
