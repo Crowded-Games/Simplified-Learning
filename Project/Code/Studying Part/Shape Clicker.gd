@@ -22,7 +22,7 @@ func show_shape_clicker(selected_number):
 		next_line = file.get_line()
 		description.append(next_line)
 		next_line = file.get_line()
-	# Insert here a function to make the thing appear
+	get_node("AnimationPlayer").play("appear")
 
 func Back():
 	get_node("AnimationPlayer").play("disappear")

@@ -1093,13 +1093,125 @@ text = "Name"
 
 [node name="Back" type="Button" parent="Shape Clicker"]
 layout_mode = 0
-offset_left = 467.0
-offset_top = 518.0
-offset_right = 697.0
-offset_bottom = 628.0
+offset_left = 444.0
+offset_top = 5.0
+offset_right = 649.0
+offset_bottom = 69.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 40
 text = "Alright, Im Done!"
+
+[node name="Term" type="Label" parent="Shape Clicker"]
+offset_left = 298.0
+offset_top = 90.0
+offset_right = 798.0
+offset_bottom = 150.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 40
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Questions" type="Control" parent="Shape Clicker"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Purple" type="Label" parent="Shape Clicker/Questions"]
+modulate = Color(0.63, 0.13, 0.94, 1)
+layout_mode = 0
+offset_left = 80.0
+offset_top = 180.0
+offset_right = 580.0
+offset_bottom = 240.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 40
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Red" type="Label" parent="Shape Clicker/Questions"]
+modulate = Color(1, 0, 0, 1)
+offset_left = 580.0
+offset_top = 180.0
+offset_right = 1080.0
+offset_bottom = 240.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 40
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Green" type="Label" parent="Shape Clicker/Questions"]
+modulate = Color(0, 1, 0, 1)
+offset_left = 81.0
+offset_top = 240.0
+offset_right = 581.0
+offset_bottom = 300.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 40
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Blue" type="Label" parent="Shape Clicker/Questions"]
+modulate = Color(0, 0, 1, 1)
+offset_left = 581.0
+offset_top = 240.0
+offset_right = 1081.0
+offset_bottom = 300.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 40
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Answers" type="Control" parent="Shape Clicker"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Green" type="Button" parent="Shape Clicker/Answers"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 320.0
+offset_right = 580.0
+offset_bottom = 438.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 80
+text = "Green"
+
+[node name="Red" type="Button" parent="Shape Clicker/Answers"]
+offset_left = 580.0
+offset_top = 320.0
+offset_right = 1080.0
+offset_bottom = 438.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 80
+text = "Red"
+
+[node name="Blue" type="Button" parent="Shape Clicker/Answers"]
+offset_left = 80.0
+offset_top = 460.0
+offset_right = 580.0
+offset_bottom = 578.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 80
+text = "Blue"
+
+[node name="Purple" type="Button" parent="Shape Clicker/Answers"]
+offset_left = 580.0
+offset_top = 460.0
+offset_right = 1080.0
+offset_bottom = 578.0
+theme_override_fonts/font = ExtResource("3_ac4pl")
+theme_override_font_sizes/font_size = 80
+text = "Purple"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Shape Clicker"]
 libraries = {
@@ -1107,6 +1219,7 @@ libraries = {
 }
 
 [node name="Button Masher" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1145,6 +1258,7 @@ theme_override_font_sizes/font_size = 60
 text_overrun_behavior = 3
 
 [node name="Information" type="Label" parent="Button Masher"]
+layout_mode = 0
 offset_left = 338.0
 offset_top = 369.0
 offset_right = 769.0
@@ -1156,6 +1270,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Button2" type="Button" parent="Button Masher"]
+layout_mode = 0
 offset_left = 303.0
 offset_top = 420.0
 offset_right = 803.0
