@@ -686,6 +686,18 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_6pyai"]
 resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_3fxse"]
 resource_name = "disappear"
@@ -1075,6 +1087,7 @@ libraries = {
 }
 
 [node name="Shape Clicker" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1101,6 +1114,7 @@ theme_override_font_sizes/font_size = 40
 text = "Alright, Im Done!"
 
 [node name="Term" type="Label" parent="Shape Clicker"]
+layout_mode = 0
 offset_left = 298.0
 offset_top = 90.0
 offset_right = 798.0
@@ -1133,6 +1147,7 @@ autowrap_mode = 3
 
 [node name="Red" type="Label" parent="Shape Clicker/Questions"]
 modulate = Color(1, 0, 0, 1)
+layout_mode = 0
 offset_left = 580.0
 offset_top = 180.0
 offset_right = 1080.0
@@ -1146,6 +1161,7 @@ autowrap_mode = 3
 
 [node name="Green" type="Label" parent="Shape Clicker/Questions"]
 modulate = Color(0, 1, 0, 1)
+layout_mode = 0
 offset_left = 81.0
 offset_top = 240.0
 offset_right = 581.0
@@ -1159,6 +1175,7 @@ autowrap_mode = 3
 
 [node name="Blue" type="Label" parent="Shape Clicker/Questions"]
 modulate = Color(0, 0, 1, 1)
+layout_mode = 0
 offset_left = 581.0
 offset_top = 240.0
 offset_right = 1081.0
@@ -1186,6 +1203,7 @@ theme_override_font_sizes/font_size = 80
 text = "Green"
 
 [node name="Red" type="Button" parent="Shape Clicker/Answers"]
+layout_mode = 0
 offset_left = 580.0
 offset_top = 320.0
 offset_right = 1080.0
@@ -1195,6 +1213,7 @@ theme_override_font_sizes/font_size = 80
 text = "Red"
 
 [node name="Blue" type="Button" parent="Shape Clicker/Answers"]
+layout_mode = 0
 offset_left = 80.0
 offset_top = 460.0
 offset_right = 580.0
@@ -1204,6 +1223,7 @@ theme_override_font_sizes/font_size = 80
 text = "Blue"
 
 [node name="Purple" type="Button" parent="Shape Clicker/Answers"]
+layout_mode = 0
 offset_left = 580.0
 offset_top = 460.0
 offset_right = 1080.0
@@ -1313,6 +1333,10 @@ libraries = {
 [connection signal="pressed" from="Multiple Choice/Buttons/Answer4" to="Multiple Choice" method="answer_pressed" binds= [4]]
 [connection signal="pressed" from="Multiple Choice/Back" to="Multiple Choice" method="Back"]
 [connection signal="pressed" from="Shape Clicker/Back" to="Shape Clicker" method="Back"]
+[connection signal="pressed" from="Shape Clicker/Answers/Green" to="Shape Clicker" method="button_pressed" binds= ["Green"]]
+[connection signal="pressed" from="Shape Clicker/Answers/Red" to="Shape Clicker" method="button_pressed" binds= ["Red"]]
+[connection signal="pressed" from="Shape Clicker/Answers/Blue" to="Shape Clicker" method="button_pressed" binds= ["Blue"]]
+[connection signal="pressed" from="Shape Clicker/Answers/Purple" to="Shape Clicker" method="button_pressed" binds= ["Purple"]]
 [connection signal="pressed" from="Button Masher/Button1" to="Button Masher" method="ButtonPress" binds= [1]]
 [connection signal="pressed" from="Button Masher/Button2" to="Button Masher" method="ButtonPress" binds= [2]]
 [connection signal="pressed" from="Button Masher/Back" to="Button Masher" method="Back"]

@@ -24,5 +24,11 @@ func show_shape_clicker(selected_number):
 		next_line = file.get_line()
 	get_node("AnimationPlayer").play("appear")
 
+func button_pressed(color: String):
+	if get_node("Questions/" + color).get("text") == description[current_number]:
+		print("good!")
+	else:
+		print("bad!")
+
 func Back():
 	get_node("AnimationPlayer").play("disappear")
