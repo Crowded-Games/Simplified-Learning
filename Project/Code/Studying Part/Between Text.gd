@@ -25,7 +25,7 @@ signal show_button_masher
 # once the bloody "disappear" animation is done, do this
 func show_the_studying():
 	if signal_number == 0:
-		signal_number = randi_range(4, 4)
+		signal_number = randi_range(1, 5)
 	else:
 		signal_number += 1
 		if signal_number == signal_maximum + 1:

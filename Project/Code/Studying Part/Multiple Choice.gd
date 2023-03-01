@@ -57,14 +57,6 @@ func RedoAnswers():
 	# This goes up the buttons
 	description_object.set("text", description[current_number])
 	match(terms.size()):
-		4:
-			var temp_number = 1
-			# Set text
-			while temp_number <= terms.size():
-				get_node("Buttons/Answer" + str(temp_number)).set("text", terms[randi_range(0, terms.size() - 1)])
-				temp_number += 1
-			# Now set the answer!
-			get_node("Buttons/Answer" + str(randi_range(1, 4))).set("text", terms[current_number])
 		3:
 			get_node("Buttons/Answer4").set("visible", false)
 			# Set text
@@ -78,6 +70,7 @@ func RedoAnswers():
 				# Increment both counters so it doesn't bug
 				random_counter += 1
 				counter_counter += 1
+			return
 		2:
 			get_node("Buttons/Answer4").set("visible", false)
 			get_node("Buttons/Answer3").set("visible", false)
@@ -88,12 +81,22 @@ func RedoAnswers():
 			else:
 				get_node("Buttons/Answer1").set("text", terms[0])
 				get_node("Buttons/Answer2").set("text", terms[1])
+			return
 		1:
 			get_node("Buttons/Answer4").set("visible", false)
 			get_node("Buttons/Answer3").set("visible", false)
 			get_node("Buttons/Answer2").set("visible", false)
 			# Set text
 			get_node("Buttons/Answer1").set("text", terms[0])
+			return
+	# If there is 4 or more items, then we should still do stuff
+	var temp_number = 1
+	# Set text
+	while temp_number <= 4:
+		get_node("Buttons/Answer" + str(temp_number)).set("text", terms[randi_range(0, terms.size() - 1)])
+		temp_number += 1
+	# Now set the answer!
+	get_node("Buttons/Answer" + str(randi_range(1, 4))).set("text", terms[current_number])
 
 func Back():
 	get_node("AnimationPlayer").play("disappear")
