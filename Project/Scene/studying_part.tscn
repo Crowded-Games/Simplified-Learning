@@ -1349,7 +1349,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("5_aybkm")
-words = PackedStringArray("You are doing great, don\'t let anything stop you", "Wonderful, you are learning really well!", "This was a hard one, but you got through it.", "I see great things in your future. Keep at it!")
+words = PackedStringArray("You are doing great, don\'t let anything stop you", "Wonderful, you are learning really well!", "This was a hard one, but you got through it.", "I see great things in your future. Keep at it!", "Come on, you are winning!", "Almost there, almost there!", "You are doing better than anyone I have ever seen.", "CONTINUE! YEEEEEAAAAAH!")
 
 [node name="Label" type="Label" parent="Between Text"]
 layout_mode = 0
@@ -1598,9 +1598,8 @@ script = ExtResource("9_0y64m")
 
 [node name="Name" type="Label" parent="Shape Clicker"]
 layout_mode = 0
-offset_top = -81.0
 offset_right = 89.0
-offset_bottom = -9.0
+offset_bottom = 72.0
 theme_override_colors/font_color = Color(0.47451, 0.47451, 0.47451, 1)
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 50
@@ -1608,20 +1607,20 @@ text = "Name"
 
 [node name="Back" type="Button" parent="Shape Clicker"]
 layout_mode = 0
-offset_left = 1210.0
-offset_top = -205.0
-offset_right = 1415.0
-offset_bottom = -141.0
+offset_left = 444.0
+offset_top = 5.0
+offset_right = 649.0
+offset_bottom = 69.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 40
 text = "Alright, Im Done!"
 
 [node name="Term" type="Label" parent="Shape Clicker"]
 layout_mode = 0
-offset_left = -411.0
-offset_top = -80.0
-offset_right = 89.0007
-offset_bottom = -19.9999
+offset_left = 300.0
+offset_top = 90.0
+offset_right = 800.001
+offset_bottom = 150.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 40
 text = "test"
@@ -1637,9 +1636,9 @@ offset_bottom = 40.0
 [node name="Purple" type="Label" parent="Shape Clicker/Questions"]
 modulate = Color(0.63, 0.13, 0.94, 1)
 layout_mode = 0
-offset_left = -558.0
+offset_left = 80.0
 offset_top = 180.0
-offset_right = -58.0001
+offset_right = 580.0
 offset_bottom = 240.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 40
@@ -1651,9 +1650,9 @@ autowrap_mode = 3
 [node name="Red" type="Label" parent="Shape Clicker/Questions"]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 0
-offset_left = 1152.0
+offset_left = 580.0
 offset_top = 180.0
-offset_right = 1652.0
+offset_right = 1080.0
 offset_bottom = 240.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 40
@@ -1665,9 +1664,9 @@ autowrap_mode = 3
 [node name="Green" type="Label" parent="Shape Clicker/Questions"]
 modulate = Color(0, 1, 0, 1)
 layout_mode = 0
-offset_left = -648.0
+offset_left = 81.0
 offset_top = 240.0
-offset_right = -148.0
+offset_right = 581.0
 offset_bottom = 300.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 40
@@ -1679,9 +1678,9 @@ autowrap_mode = 3
 [node name="Blue" type="Label" parent="Shape Clicker/Questions"]
 modulate = Color(0, 0, 1, 1)
 layout_mode = 0
-offset_left = 1682.0
+offset_left = 581.0
 offset_top = 240.0
-offset_right = 2182.0
+offset_right = 1081.0
 offset_bottom = 300.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 40
@@ -1698,9 +1697,9 @@ offset_bottom = 40.0
 [node name="Green" type="Button" parent="Shape Clicker/Answers"]
 layout_mode = 0
 offset_left = 80.0
-offset_top = 1002.0
+offset_top = 320.0
 offset_right = 580.0
-offset_bottom = 1120.0
+offset_bottom = 438.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 80
 text = "Green"
@@ -1708,9 +1707,9 @@ text = "Green"
 [node name="Red" type="Button" parent="Shape Clicker/Answers"]
 layout_mode = 0
 offset_left = 580.0
-offset_top = 1094.0
+offset_top = 320.0
 offset_right = 1080.0
-offset_bottom = 1212.0
+offset_bottom = 438.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 80
 text = "Red"
@@ -1718,9 +1717,9 @@ text = "Red"
 [node name="Blue" type="Button" parent="Shape Clicker/Answers"]
 layout_mode = 0
 offset_left = 80.0
-offset_top = 678.0
+offset_top = 460.0
 offset_right = 580.0
-offset_bottom = 796.0
+offset_bottom = 578.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 80
 text = "Blue"
@@ -1728,9 +1727,9 @@ text = "Blue"
 [node name="Purple" type="Button" parent="Shape Clicker/Answers"]
 layout_mode = 0
 offset_left = 580.0
-offset_top = 776.0
+offset_top = 460.0
 offset_right = 1080.0
-offset_bottom = 894.0
+offset_bottom = 578.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 80
 text = "Purple"

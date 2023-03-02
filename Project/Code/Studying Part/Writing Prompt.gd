@@ -3,8 +3,6 @@ extends Control
 var terms: PackedStringArray
 var description: PackedStringArray
 
-var correct_things: Array
-
 @onready var term_object = get_node("Label")
 @onready var writing_animation = get_node("AnimationPlayer")
 
@@ -21,8 +19,6 @@ func show_writing_prompt(selected_number):
 	# Now add those lovely terms onto that array
 	var next_line = file.get_line()
 	while next_line != EndingText:
-		# idk this is how you fill a bool array I guess...
-		correct_things.append(false)
 		# load them beutiful stuff.
 		terms.append(next_line)
 		next_line = file.get_line()
@@ -43,10 +39,8 @@ func _process(delta):
 
 func _on_answer_edit_text_submitted(new_text: String):
 	if new_text.to_upper() == description[current_number].to_upper():
-		correct_things[current_number] = true
 		green += 1
 	else:
-		correct_things[current_number] = false
 		red += 1
 		# Save these to the wrong list for later
 		get_node(".").get_parent().wrong_terms.append(terms[current_number])

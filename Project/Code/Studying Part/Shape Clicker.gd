@@ -26,10 +26,22 @@ func show_shape_clicker(selected_number):
 	get_node("AnimationPlayer").play("appear")
 	new_stuff()
 
+var green = 0.0
+var red = 0.0
+
+func _process(delta):
+	get_node("Term").set("theme_override_colors/font_color", Color(red, green, 0, 1))
+	if red >= 0:
+		red -= (delta / 2)
+	if green >= 0:
+		green -= (delta / 2)
+
 func button_pressed(color: String):
 	if get_node("Questions/" + color).get("text") == description[current_number]:
+		green += 1
 		new_stuff()
 	else:
+		red += 1
 		# add wrong stuff
 		get_node(".").get_parent().wrong_terms.append(terms[current_number])
 		get_node(".").get_parent().wrong_descriptions.append(description[current_number])
