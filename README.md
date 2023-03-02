@@ -1,8 +1,5 @@
 # Simplified Learning
- Im trying again.
 
- I am going to start by saying if you want to contribute to this Github repository, PLEASE DO! The more people that contribute to this to make it more better... the better!
+ You are currently in the "coding" section. If you want to learn how everything works, please take a look at the Wiki section. That is where you will really learn how stuff works.
 
- You might be wondering why I am saying I am trying again. I have done this once, but it was sub-par.
-
- Star this repository for more fun stuff added to this!
+ Star this repository for knowledge of things being worked on.
