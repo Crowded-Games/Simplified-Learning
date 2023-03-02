@@ -29,8 +29,11 @@ func show_button_masher(selected_number):
 var current_amount_of_presses = 0
 
 func ButtonPress(ButtNumber: int):
+	if get_node("AnimationPlayer").is_playing():
+		return
 	if get_node("Button" + str(ButtNumber)).get("text") == description[current_number]:
 		current_amount_of_presses += 1
+		get_node("AnimationPlayer").play("Button_Correct")
 		RefreshStuff()
 	else:
 		current_amount_of_presses = 0
@@ -38,6 +41,7 @@ func ButtonPress(ButtNumber: int):
 		# add wrong stuff
 		get_node(".").get_parent().wrong_terms.append(terms[current_number])
 		get_node(".").get_parent().wrong_descriptions.append(description[current_number])
+		get_node("AnimationPlayer").play("Button_Wrong")
 		RefreshStuff()
 
 func RefreshStuff():
