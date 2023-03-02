@@ -35,6 +35,9 @@ func ButtonPress(ButtNumber: int):
 	else:
 		current_amount_of_presses = 0
 		current_number += 1
+		# add wrong stuff
+		get_node(".").get_parent().wrong_terms.append(terms[current_number])
+		get_node(".").get_parent().wrong_descriptions.append(description[current_number])
 		RefreshStuff()
 
 func RefreshStuff():

@@ -686,21 +686,143 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_6pyai"]
 resource_name = "appear"
+length = 1.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
+tracks/0/path = NodePath("Answers/Blue:position")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(80, 678), Vector2(80, 460)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Answers/Purple:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(580, 776), Vector2(580, 460)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Answers/Green:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(80, 1002), Vector2(80, 320)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Answers/Red:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(580, 1094), Vector2(580, 320)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Questions/Purple:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-558, 180), Vector2(80, 180)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Questions/Green:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-648, 240), Vector2(81, 240)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Questions/Red:position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1152, 180), Vector2(580, 180)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Questions/Blue:position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1682, 240), Vector2(581, 240)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Term:position")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.8, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-411, -80), Vector2(300, 90)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Back:position")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.8, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1210, -205), Vector2(444, 5)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Name:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.9, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -81), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_3fxse"]
 resource_name = "disappear"
+length = 1.1
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -708,12 +830,144 @@ tracks/0/path = NodePath("..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(1.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"Main_Menu"
 }]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Questions:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(122, -280)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Questions:rotation")
+tracks/2/interp = 4
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.200713]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Answers:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(24, 384)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Answers:rotation")
+tracks/4/interp = 4
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.164061]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Term:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(300, 90), Vector2(570, 257), Vector2(487, -334)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Term:rotation")
+tracks/6/interp = 4
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -2.12232]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Back:rotation")
+tracks/7/interp = 4
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.4, 0.6, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.326377, -0.326377, -0.326377]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Back:position")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.4, 0.6, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(444, 5), Vector2(457, 333), Vector2(556, 453), Vector2(1592, 151)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Name:rotation")
+tracks/9/interp = 4
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.8, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.63188]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Name:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.8, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-83, 3)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(1.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_utrec"]
@@ -724,9 +978,82 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_bise5"]
 resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Term:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(115, -123), Vector2(115, 70)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button1:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-534, 249), Vector2(303, 249)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Button2:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1188, 420), Vector2(303, 420)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Information:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(338, 657), Vector2(338, 369)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Back:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(428, 653), Vector2(428, 567)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Name:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -81), Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_j4qlt"]
 resource_name = "disappear"
+length = 0.9
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -734,12 +1061,84 @@ tracks/0/path = NodePath("..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.9),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"Main_Menu"
 }]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Name:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-546, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Term:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(115, 70), Vector2(-1072, 70)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Button1:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(303, 249), Vector2(-800, 249)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Button2:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(303, 420), Vector2(-809, 420)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Information:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(338, 369), Vector2(-711, 369)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Back:position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(428, 567), Vector2(-702, 567)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_42dmh"]
@@ -875,9 +1274,9 @@ script = ExtResource("6_50g71")
 
 [node name="Name" type="Label" parent="Flash Card"]
 layout_mode = 0
-offset_left = -1000.0
-offset_right = -859.0
-offset_bottom = 113.0
+offset_top = -119.0
+offset_right = 141.0
+offset_bottom = -6.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 80
 text = "Name"
@@ -885,9 +1284,9 @@ text = "Name"
 [node name="ColorRect" type="ColorRect" parent="Flash Card"]
 layout_mode = 0
 offset_left = 358.0
-offset_top = 210.0
+offset_top = -273.0
 offset_right = 758.0
-offset_bottom = 460.0
+offset_bottom = -23.0
 pivot_offset = Vector2(200, 125)
 color = Color(0.364706, 0.364706, 0.364706, 1)
 
@@ -908,20 +1307,20 @@ offset_bottom = 250.0
 
 [node name="Right" type="Button" parent="Flash Card"]
 layout_mode = 0
-offset_left = 766.0
-offset_top = -120.0
-offset_right = 794.0
-offset_bottom = -9.99991
+offset_left = 1159.0
+offset_top = 288.0
+offset_right = 1187.0
+offset_bottom = 398.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 75
 text = ">"
 
 [node name="Left" type="Button" parent="Flash Card"]
 layout_mode = 0
-offset_left = 322.0
-offset_top = -121.0
-offset_right = 351.0
-offset_bottom = -11.0
+offset_left = -39.0
+offset_top = 289.0
+offset_right = -10.0
+offset_bottom = 399.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 75
 text = "<"
@@ -929,9 +1328,9 @@ text = "<"
 [node name="Back" type="Button" parent="Flash Card"]
 layout_mode = 0
 offset_left = 445.0
-offset_top = 663.0
+offset_top = 662.0
 offset_right = 675.0
-offset_bottom = 773.0
+offset_bottom = 772.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 45
 text = "Alright, Im Done!"
@@ -1105,20 +1504,20 @@ text = "Name"
 
 [node name="Back" type="Button" parent="Shape Clicker"]
 layout_mode = 0
-offset_left = 444.0
-offset_top = 5.0
-offset_right = 649.0
-offset_bottom = 69.0
+offset_left = 1210.0
+offset_top = -205.0
+offset_right = 1415.0
+offset_bottom = -141.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 40
 text = "Alright, Im Done!"
 
 [node name="Term" type="Label" parent="Shape Clicker"]
 layout_mode = 0
-offset_left = 298.0
-offset_top = 90.0
-offset_right = 798.0
-offset_bottom = 150.0
+offset_left = -411.0
+offset_top = -80.0
+offset_right = 89.0007
+offset_bottom = -19.9999
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 40
 text = "test"
@@ -1128,15 +1527,15 @@ autowrap_mode = 3
 
 [node name="Questions" type="Control" parent="Shape Clicker"]
 anchors_preset = 0
-offset_right = 40.0
+offset_right = 39.9995
 offset_bottom = 40.0
 
 [node name="Purple" type="Label" parent="Shape Clicker/Questions"]
 modulate = Color(0.63, 0.13, 0.94, 1)
 layout_mode = 0
-offset_left = 80.0
+offset_left = -558.0
 offset_top = 180.0
-offset_right = 580.0
+offset_right = -58.0001
 offset_bottom = 240.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 40
@@ -1148,9 +1547,9 @@ autowrap_mode = 3
 [node name="Red" type="Label" parent="Shape Clicker/Questions"]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 0
-offset_left = 580.0
+offset_left = 1152.0
 offset_top = 180.0
-offset_right = 1080.0
+offset_right = 1652.0
 offset_bottom = 240.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 40
@@ -1162,9 +1561,9 @@ autowrap_mode = 3
 [node name="Green" type="Label" parent="Shape Clicker/Questions"]
 modulate = Color(0, 1, 0, 1)
 layout_mode = 0
-offset_left = 81.0
+offset_left = -648.0
 offset_top = 240.0
-offset_right = 581.0
+offset_right = -148.0
 offset_bottom = 300.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 40
@@ -1176,9 +1575,9 @@ autowrap_mode = 3
 [node name="Blue" type="Label" parent="Shape Clicker/Questions"]
 modulate = Color(0, 0, 1, 1)
 layout_mode = 0
-offset_left = 581.0
+offset_left = 1682.0
 offset_top = 240.0
-offset_right = 1081.0
+offset_right = 2182.0
 offset_bottom = 300.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 40
@@ -1195,9 +1594,9 @@ offset_bottom = 40.0
 [node name="Green" type="Button" parent="Shape Clicker/Answers"]
 layout_mode = 0
 offset_left = 80.0
-offset_top = 320.0
+offset_top = 1002.0
 offset_right = 580.0
-offset_bottom = 438.0
+offset_bottom = 1120.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 80
 text = "Green"
@@ -1205,9 +1604,9 @@ text = "Green"
 [node name="Red" type="Button" parent="Shape Clicker/Answers"]
 layout_mode = 0
 offset_left = 580.0
-offset_top = 320.0
+offset_top = 1094.0
 offset_right = 1080.0
-offset_bottom = 438.0
+offset_bottom = 1212.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 80
 text = "Red"
@@ -1215,9 +1614,9 @@ text = "Red"
 [node name="Blue" type="Button" parent="Shape Clicker/Answers"]
 layout_mode = 0
 offset_left = 80.0
-offset_top = 460.0
+offset_top = 678.0
 offset_right = 580.0
-offset_bottom = 578.0
+offset_bottom = 796.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 80
 text = "Blue"
@@ -1225,9 +1624,9 @@ text = "Blue"
 [node name="Purple" type="Button" parent="Shape Clicker/Answers"]
 layout_mode = 0
 offset_left = 580.0
-offset_top = 460.0
+offset_top = 776.0
 offset_right = 1080.0
-offset_bottom = 578.0
+offset_bottom = 894.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 80
 text = "Purple"
@@ -1257,9 +1656,9 @@ text = "Name"
 [node name="Term" type="Label" parent="Button Masher"]
 layout_mode = 0
 offset_left = 115.0
-offset_top = 106.0
+offset_top = -123.0
 offset_right = 1045.0
-offset_bottom = 222.0
+offset_bottom = -6.99998
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 40
 text = "test :)"
@@ -1268,9 +1667,9 @@ autowrap_mode = 3
 
 [node name="Button1" type="Button" parent="Button Masher"]
 layout_mode = 0
-offset_left = 303.0
+offset_left = -534.0
 offset_top = 249.0
-offset_right = 803.0
+offset_right = -34.0001
 offset_bottom = 363.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 60
@@ -1279,9 +1678,9 @@ text_overrun_behavior = 3
 [node name="Information" type="Label" parent="Button Masher"]
 layout_mode = 0
 offset_left = 338.0
-offset_top = 369.0
+offset_top = 657.0
 offset_right = 769.0
-offset_bottom = 414.0
+offset_bottom = 702.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 30
 text = "Press the button with the correct information"
@@ -1290,9 +1689,9 @@ autowrap_mode = 3
 
 [node name="Button2" type="Button" parent="Button Masher"]
 layout_mode = 0
-offset_left = 303.0
+offset_left = 1188.0
 offset_top = 420.0
-offset_right = 803.0
+offset_right = 1688.0
 offset_bottom = 534.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 60
@@ -1301,9 +1700,9 @@ text_overrun_behavior = 3
 [node name="Back" type="Button" parent="Button Masher"]
 layout_mode = 0
 offset_left = 428.0
-offset_top = 567.0
+offset_top = 653.0
 offset_right = 658.0
-offset_bottom = 637.0
+offset_bottom = 723.0
 theme_override_fonts/font = ExtResource("3_ac4pl")
 theme_override_font_sizes/font_size = 45
 text = "Alright, Im Done!"

@@ -28,10 +28,11 @@ func show_shape_clicker(selected_number):
 
 func button_pressed(color: String):
 	if get_node("Questions/" + color).get("text") == description[current_number]:
-		print("good!")
 		new_stuff()
 	else:
-		print("bad!")
+		# add wrong stuff
+		get_node(".").get_parent().wrong_terms.append(terms[current_number])
+		get_node(".").get_parent().wrong_descriptions.append(description[current_number])
 		new_stuff()
 
 func new_stuff():
