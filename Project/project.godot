@@ -13,7 +13,7 @@ config_version=5
 config/name="Simplified Learning"
 run/main_scene="res://Scene/main_menu.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
-config/icon="res://Images/icon.svg"
+config/icon="res://Images/Logo.png"
 
 [display]
 
