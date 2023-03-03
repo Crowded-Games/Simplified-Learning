@@ -5,11 +5,11 @@
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="2_kxx44"]
 [ext_resource type="AudioStream" uid="uid://c6a5ud0xmnb5c" path="res://Music/beautiful-piano-115480.mp3" id="3_v8j0r"]
 
-[sub_resource type="Gradient" id="Gradient_gtjcu"]
+[sub_resource type="Gradient" id="Gradient_oxbcr"]
 colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_arsgt"]
-gradient = SubResource("Gradient_gtjcu")
+gradient = SubResource("Gradient_oxbcr")
 fill_from = Vector2(0, 0.00458716)
 
 [sub_resource type="Animation" id="Animation_vfihc"]

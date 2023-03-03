@@ -15,10 +15,10 @@ func _ready():
 		var file = FileAccess.open("res://Date.txt", FileAccess.READ)
 		var day = file.get_line()
 		if (Date.day > int(day)) || (Date.day == 0 && int(day) != 0):
-			print("Hey, give this man a daily award!")
 			file = null
 			file = FileAccess.open("res://Date.txt", FileAccess.WRITE)
 			file.store_line(str(Date.day))
+			get_tree().change_scene_to_file("res://Scene/roulette.tscn")
 	else:
 		var file = FileAccess.open("res://Date.txt", FileAccess.WRITE)
 		file.store_line(str(Date.day))

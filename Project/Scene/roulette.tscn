@@ -1,0 +1,294 @@
+[gd_scene load_steps=13 format=3 uid="uid://be1fyipgtk0pt"]
+
+[ext_resource type="Script" path="res://Code/roulette.gd" id="1_4p0uy"]
+[ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_eimic"]
+[ext_resource type="Texture2D" uid="uid://blucai18cqf8v" path="res://Images/Spin.png" id="3_ikj0d"]
+
+[sub_resource type="Gradient" id="Gradient_gtjcu"]
+colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yl6le"]
+gradient = SubResource("Gradient_gtjcu")
+fill_from = Vector2(0, 0.00458716)
+
+[sub_resource type="Animation" id="Animation_l0csr"]
+resource_name = "Final_Spin"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spinner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1300, 291), Vector2(436, 291), Vector2(580, 291)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"save_and_back"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ynqn8"]
+resource_name = "More_Spin"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spinner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(703, 291), Vector2(100, 291)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"more_spin"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_2abej"]
+resource_name = "Spin"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spinner:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(580, 291), Vector2(703, 291), Vector2(100, 291)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"more_spin"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_56ty0"]
+resource_name = "Start"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CPUParticles2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.305882, 0.305882, 0.305882, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.301961, 0.301961, 0.301961, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spin"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o0khd"]
+_data = {
+"Final_Spin": SubResource("Animation_l0csr"),
+"More_Spin": SubResource("Animation_ynqn8"),
+"Spin": SubResource("Animation_2abej"),
+"Start": SubResource("Animation_56ty0")
+}
+
+[sub_resource type="Gradient" id="Gradient_k1o56"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tli5a"]
+gradient = SubResource("Gradient_k1o56")
+
+[node name="Roulette" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4p0uy")
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(575.992, 324.007)
+rotation = 1.5708
+scale = Vector2(10.1252, 17.9997)
+texture = SubResource("GradientTexture2D_yl6le")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background"]
+autoplay = true
+bus = &"Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_o0khd")
+}
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(1321, 300)
+rotation = 3.14159
+amount = 4
+lifetime = 30.0
+preprocess = 20.0
+texture = ExtResource("1_eimic")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 300)
+spread = 5.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+scale_amount_min = 0.4
+scale_amount_max = 0.4
+color = Color(0.137255, 0.0509804, 0.337255, 1)
+
+[node name="Spinner" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 580.0
+offset_top = 291.0
+offset_right = 620.0
+offset_bottom = 331.0
+
+[node name="Image4" type="TextureRect" parent="Spinner"]
+layout_mode = 0
+offset_left = 1052.0
+offset_top = -145.0
+offset_right = 1352.0
+offset_bottom = 155.0
+texture = SubResource("GradientTexture1D_tli5a")
+expand_mode = 1
+
+[node name="Image3" type="TextureRect" parent="Spinner"]
+layout_mode = 0
+offset_left = 752.0
+offset_top = -145.0
+offset_right = 1052.0
+offset_bottom = 155.0
+texture = SubResource("GradientTexture1D_tli5a")
+expand_mode = 1
+
+[node name="Image2" type="TextureRect" parent="Spinner"]
+layout_mode = 0
+offset_left = 452.0
+offset_top = -145.0
+offset_right = 752.0
+offset_bottom = 155.0
+texture = SubResource("GradientTexture1D_tli5a")
+expand_mode = 1
+
+[node name="Image1" type="TextureRect" parent="Spinner"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = -145.0
+offset_right = 452.0
+offset_bottom = 155.0
+texture = SubResource("GradientTexture1D_tli5a")
+expand_mode = 1
+
+[node name="Image0" type="TextureRect" parent="Spinner"]
+layout_mode = 0
+offset_left = -148.0
+offset_top = -145.0
+offset_right = 152.0
+offset_bottom = 155.0
+texture = SubResource("GradientTexture1D_tli5a")
+expand_mode = 1
+
+[node name="Image-1" type="TextureRect" parent="Spinner"]
+layout_mode = 0
+offset_left = -448.0
+offset_top = -145.0
+offset_right = -148.0
+offset_bottom = 155.0
+texture = SubResource("GradientTexture1D_tli5a")
+expand_mode = 1
+
+[node name="Image-2" type="TextureRect" parent="Spinner"]
+layout_mode = 0
+offset_left = -748.0
+offset_top = -145.0
+offset_right = -448.0
+offset_bottom = 155.0
+texture = SubResource("GradientTexture1D_tli5a")
+expand_mode = 1
+
+[node name="Image-3" type="TextureRect" parent="Spinner"]
+layout_mode = 0
+offset_left = -1048.0
+offset_top = -145.0
+offset_right = -748.0
+offset_bottom = 155.0
+texture = SubResource("GradientTexture1D_tli5a")
+expand_mode = 1
+
+[node name="Image-4" type="TextureRect" parent="Spinner"]
+layout_mode = 0
+offset_left = -1348.0
+offset_top = -145.0
+offset_right = -1048.0
+offset_bottom = 155.0
+texture = SubResource("GradientTexture1D_tli5a")
+expand_mode = 1
+
+[node name="Spin" type="Sprite2D" parent="."]
+position = Vector2(578, 303)
+texture = ExtResource("3_ikj0d")
