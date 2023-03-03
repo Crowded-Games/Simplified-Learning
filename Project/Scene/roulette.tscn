@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://be1fyipgtk0pt"]
+[gd_scene load_steps=14 format=3 uid="uid://be1fyipgtk0pt"]
 
 [ext_resource type="Script" path="res://Code/roulette.gd" id="1_4p0uy"]
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_eimic"]
 [ext_resource type="Texture2D" uid="uid://blucai18cqf8v" path="res://Images/Spin.png" id="3_ikj0d"]
+[ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="4_iu1g6"]
 
 [sub_resource type="Gradient" id="Gradient_gtjcu"]
 colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
@@ -37,7 +38,7 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"save_and_back"
+"method": &"save"
 }]
 }
 
@@ -292,3 +293,36 @@ expand_mode = 1
 [node name="Spin" type="Sprite2D" parent="."]
 position = Vector2(578, 303)
 texture = ExtResource("3_ikj0d")
+
+[node name="End Screen" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="End Screen"]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 26.0
+offset_right = 985.0
+offset_bottom = 626.0
+
+[node name="Claim" type="Button" parent="End Screen"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 524.0
+offset_right = 710.0
+offset_bottom = 601.0
+theme_override_fonts/font = ExtResource("4_iu1g6")
+theme_override_font_sizes/font_size = 50
+text = "Cool! Claim Item!"
+
+[node name="Item" type="TextureRect" parent="End Screen"]
+offset_left = 378.0
+offset_top = 103.0
+offset_right = 778.0
+offset_bottom = 503.0
+texture = SubResource("GradientTexture1D_tli5a")
+expand_mode = 1
+
+[connection signal="pressed" from="End Screen/Claim" to="." method="claim"]

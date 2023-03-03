@@ -16,6 +16,9 @@ func more_spin():
 		animation.set_speed_scale(1)
 		animation.play("Final_Spin")
 
-func save_and_back():
+func save():
 	print("Good job! Now fuck off!")
+	get_node("End Screen").set_visible(true)
+
+func claim():
 	get_tree().change_scene_to_file("res://Scene/main_menu.tscn")
