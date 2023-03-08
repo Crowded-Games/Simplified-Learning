@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://be1fyipgtk0pt"]
+[gd_scene load_steps=24 format=3 uid="uid://be1fyipgtk0pt"]
 
 [ext_resource type="Script" path="res://Code/roulette.gd" id="1_4p0uy"]
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_eimic"]
@@ -123,7 +123,7 @@ tracks/0/path = NodePath("CPUParticles2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(1, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.305882, 0.305882, 0.305882, 1)]
@@ -135,7 +135,7 @@ tracks/1/path = NodePath("Background/Sprite2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(1, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.301961, 0.301961, 0.301961, 1)]
@@ -157,10 +157,88 @@ tracks/2/keys = {
 "method": &"spin"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Text:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1320, 187), Vector2(535, 37), Vector2(45, 399), Vector2(-727, 188)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fade:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m7pv7"]
+resource_name = "Leave"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("End Screen:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1114, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spin:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(578, 303), Vector2(578, -211)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Spinner:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(580, 291), Vector2(558, 875)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"back"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o0khd"]
 _data = {
 "Final_Spin": SubResource("Animation_l0csr"),
+"Leave": SubResource("Animation_m7pv7"),
 "More_Spin": SubResource("Animation_ynqn8"),
 "Spin": SubResource("Animation_2abej"),
 "Start": SubResource("Animation_56ty0")
@@ -175,6 +253,13 @@ gradient = SubResource("Gradient_182oj")
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_tli5a"]
 gradient = SubResource("Gradient_k1o56")
+
+[sub_resource type="Gradient" id="Gradient_7a6u7"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nt2ec"]
+gradient = SubResource("Gradient_7a6u7")
 
 [node name="Roulette" type="Control"]
 layout_mode = 3
@@ -224,9 +309,9 @@ color = Color(0.137255, 0.0509804, 0.337255, 1)
 
 [node name="Spinner" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 1000.0
+offset_left = 580.0
 offset_top = 291.0
-offset_right = 1040.0
+offset_right = 620.0
 offset_bottom = 331.0
 
 [node name="Image4" type="TextureRect" parent="Spinner"]
@@ -345,5 +430,23 @@ offset_right = 778.0
 offset_bottom = 503.0
 texture = SubResource("GradientTexture1D_tli5a")
 expand_mode = 1
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1320.0
+offset_top = 187.0
+offset_right = 1907.0
+offset_bottom = 394.0
+theme_override_colors/font_color = Color(0.713726, 0.764706, 0.32549, 1)
+theme_override_fonts/font = ExtResource("4_iu1g6")
+theme_override_font_sizes/font_size = 150
+text = "Daily Reward!"
+
+[node name="Fade" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(575.992, 324.007)
+rotation = 1.5708
+scale = Vector2(10.1252, 17.9997)
+texture = SubResource("GradientTexture2D_nt2ec")
 
 [connection signal="pressed" from="End Screen/Claim" to="." method="claim"]

@@ -45,4 +45,7 @@ func save():
 	get_node("End Screen").set_visible(true)
 
 func claim():
+	animation.play("Leave")
+
+func back():
 	get_tree().change_scene_to_file("res://Scene/main_menu.tscn")

@@ -14,7 +14,7 @@ fill_from = Vector2(0, 0.00458716)
 
 [sub_resource type="Animation" id="Animation_vfihc"]
 resource_name = "GetIn"
-length = 1.8
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -87,10 +87,22 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(-185, 445), Vector2(0, 445)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Inventory:position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1557, 556), Vector2(408, 556), Vector2(946, 556)]
+}
 
 [sub_resource type="Animation" id="Animation_lud5r"]
 resource_name = "GetOut"
-length = 1.8
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -162,6 +174,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 445), Vector2(-185, 445)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Inventory:position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.2, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(946, 556), Vector2(1205, 556)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bwifi"]
@@ -261,9 +285,10 @@ theme_override_font_sizes/font_size = 50
 text = "Take Quiz"
 
 [node name="Inventory" type="Button" parent="."]
-offset_left = 944.0
+layout_mode = 0
+offset_left = 1557.0
 offset_top = 556.0
-offset_right = 1150.0
+offset_right = 1763.0
 offset_bottom = 647.0
 theme_override_fonts/font = ExtResource("2_kxx44")
 theme_override_font_sizes/font_size = 60
