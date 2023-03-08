@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cv1cqhowt0pcn"]
+[gd_scene load_steps=14 format=3 uid="uid://cv1cqhowt0pcn"]
 
 [ext_resource type="Script" path="res://Code/Inventory.gd" id="1_ouyt1"]
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="2_21a1n"]
@@ -15,6 +15,81 @@ colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ku2k6"]
 gradient = SubResource("Gradient_oxbcr")
 fill_from = Vector2(0, 0.00458716)
+
+[sub_resource type="Animation" id="Animation_iubat"]
+resource_name = "In"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ScrollContainer:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -560), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Button:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-229, 567), Vector2(1051, 567), Vector2(539, 567)]
+}
+
+[sub_resource type="Animation" id="Animation_slsr1"]
+resource_name = "Out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ScrollContainer:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Button:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(539, 567), Vector2(539, 567), Vector2(539, -329)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"leave"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7x784"]
+_data = {
+"In": SubResource("Animation_iubat"),
+"Out": SubResource("Animation_slsr1")
+}
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -56,10 +131,16 @@ color = Color(0.137255, 0.0509804, 0.337255, 1)
 autoplay = true
 bus = &"Music"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
+libraries = {
+"": SubResource("AnimationLibrary_7x784")
+}
+
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
+offset_top = -560.0
 offset_right = 1152.0
-offset_bottom = 561.0
+offset_bottom = 1.0
 
 [node name="HFlowContainer" type="HFlowContainer" parent="ScrollContainer"]
 custom_minimum_size = Vector2(1152, 561)
@@ -67,10 +148,12 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 519.0
+offset_left = -229.0
 offset_top = 567.0
-offset_right = 601.0
+offset_right = -147.0
 offset_bottom = 644.0
 theme_override_fonts/font = ExtResource("4_5opat")
 theme_override_font_sizes/font_size = 50
 text = "Back"
+
+[connection signal="pressed" from="Button" to="." method="Back"]
