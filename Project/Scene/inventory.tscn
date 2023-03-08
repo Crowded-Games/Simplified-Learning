@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cv1cqhowt0pcn"]
+[gd_scene load_steps=11 format=3 uid="uid://cv1cqhowt0pcn"]
 
 [ext_resource type="Script" path="res://Code/Inventory.gd" id="1_ouyt1"]
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="2_21a1n"]
 [ext_resource type="Texture2D" uid="uid://f62j2sovwn3q" path="res://Images/Loot/Image1.png" id="2_fx1hu"]
-[ext_resource type="AudioStream" uid="uid://c6a5ud0xmnb5c" path="res://Music/beautiful-piano-115480.mp3" id="3_cdtn0"]
 [ext_resource type="Texture2D" uid="uid://drd3g3acppdah" path="res://Images/Loot/Image2.png" id="3_htj1r"]
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="4_5opat"]
 [ext_resource type="Texture2D" uid="uid://b3c8x5242f3hy" path="res://Images/Loot/Image3.png" id="4_8j7sc"]
@@ -54,7 +53,6 @@ scale_amount_max = 0.4
 color = Color(0.137255, 0.0509804, 0.337255, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background"]
-stream = ExtResource("3_cdtn0")
 autoplay = true
 bus = &"Music"
 
