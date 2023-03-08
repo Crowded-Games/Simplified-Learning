@@ -1,9 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://be1fyipgtk0pt"]
+[gd_scene load_steps=21 format=3 uid="uid://be1fyipgtk0pt"]
 
 [ext_resource type="Script" path="res://Code/roulette.gd" id="1_4p0uy"]
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_eimic"]
+[ext_resource type="Texture2D" uid="uid://f62j2sovwn3q" path="res://Images/Loot/Image1.png" id="3_4lp7e"]
+[ext_resource type="Texture2D" uid="uid://drd3g3acppdah" path="res://Images/Loot/Image2.png" id="3_5sskh"]
 [ext_resource type="Texture2D" uid="uid://blucai18cqf8v" path="res://Images/Spin.png" id="3_ikj0d"]
+[ext_resource type="Texture2D" uid="uid://b3c8x5242f3hy" path="res://Images/Loot/Image3.png" id="4_deomu"]
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="4_iu1g6"]
+[ext_resource type="Texture2D" uid="uid://mdgms2cse78a" path="res://Images/Loot/Image4.png" id="5_bqwld"]
+[ext_resource type="Texture2D" uid="uid://cq7sto8gjhe38" path="res://Images/Loot/Image5.png" id="6_2ttkg"]
 
 [sub_resource type="Gradient" id="Gradient_gtjcu"]
 colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
@@ -25,7 +30,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.8, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1300, 291), Vector2(436, 291), Vector2(580, 291)]
+"values": [Vector2(1000, 291), Vector2(136, 291), Vector2(280, 291)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -34,9 +39,12 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [2],
+"method": &"add_images"
+}, {
 "args": [],
 "method": &"save"
 }]
@@ -55,7 +63,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(703, 291), Vector2(100, 291)]
+"values": [Vector2(1003, 291), Vector2(-200, 291)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -64,9 +72,12 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [1],
+"method": &"add_images"
+}, {
 "args": [],
 "method": &"more_spin"
 }]
@@ -85,7 +96,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(580, 291), Vector2(703, 291), Vector2(100, 291)]
+"values": [Vector2(580, 291), Vector2(703, 291), Vector2(-200, 291)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -136,9 +147,12 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(3),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [-4],
+"method": &"add_images"
+}, {
 "args": [],
 "method": &"spin"
 }]
@@ -151,6 +165,11 @@ _data = {
 "Spin": SubResource("Animation_2abej"),
 "Start": SubResource("Animation_56ty0")
 }
+
+[sub_resource type="Gradient" id="Gradient_182oj"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fabde"]
+gradient = SubResource("Gradient_182oj")
 
 [sub_resource type="Gradient" id="Gradient_k1o56"]
 
@@ -165,6 +184,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4p0uy")
+textures = [ExtResource("3_4lp7e"), ExtResource("3_5sskh"), ExtResource("4_deomu"), ExtResource("5_bqwld"), ExtResource("6_2ttkg")]
 
 [node name="Background" type="Node" parent="."]
 
@@ -215,7 +235,7 @@ offset_left = 1052.0
 offset_top = -145.0
 offset_right = 1352.0
 offset_bottom = 155.0
-texture = SubResource("GradientTexture1D_tli5a")
+texture = SubResource("GradientTexture2D_fabde")
 expand_mode = 1
 
 [node name="Image3" type="TextureRect" parent="Spinner"]
@@ -224,7 +244,7 @@ offset_left = 752.0
 offset_top = -145.0
 offset_right = 1052.0
 offset_bottom = 155.0
-texture = SubResource("GradientTexture1D_tli5a")
+texture = SubResource("GradientTexture2D_fabde")
 expand_mode = 1
 
 [node name="Image2" type="TextureRect" parent="Spinner"]
@@ -233,7 +253,7 @@ offset_left = 452.0
 offset_top = -145.0
 offset_right = 752.0
 offset_bottom = 155.0
-texture = SubResource("GradientTexture1D_tli5a")
+texture = SubResource("GradientTexture2D_fabde")
 expand_mode = 1
 
 [node name="Image1" type="TextureRect" parent="Spinner"]
@@ -242,7 +262,7 @@ offset_left = 152.0
 offset_top = -145.0
 offset_right = 452.0
 offset_bottom = 155.0
-texture = SubResource("GradientTexture1D_tli5a")
+texture = SubResource("GradientTexture2D_fabde")
 expand_mode = 1
 
 [node name="Image0" type="TextureRect" parent="Spinner"]
@@ -251,7 +271,7 @@ offset_left = -148.0
 offset_top = -145.0
 offset_right = 152.0
 offset_bottom = 155.0
-texture = SubResource("GradientTexture1D_tli5a")
+texture = SubResource("GradientTexture2D_fabde")
 expand_mode = 1
 
 [node name="Image-1" type="TextureRect" parent="Spinner"]
@@ -260,7 +280,7 @@ offset_left = -448.0
 offset_top = -145.0
 offset_right = -148.0
 offset_bottom = 155.0
-texture = SubResource("GradientTexture1D_tli5a")
+texture = SubResource("GradientTexture2D_fabde")
 expand_mode = 1
 
 [node name="Image-2" type="TextureRect" parent="Spinner"]
@@ -269,7 +289,7 @@ offset_left = -748.0
 offset_top = -145.0
 offset_right = -448.0
 offset_bottom = 155.0
-texture = SubResource("GradientTexture1D_tli5a")
+texture = SubResource("GradientTexture2D_fabde")
 expand_mode = 1
 
 [node name="Image-3" type="TextureRect" parent="Spinner"]
@@ -278,7 +298,7 @@ offset_left = -1048.0
 offset_top = -145.0
 offset_right = -748.0
 offset_bottom = 155.0
-texture = SubResource("GradientTexture1D_tli5a")
+texture = SubResource("GradientTexture2D_fabde")
 expand_mode = 1
 
 [node name="Image-4" type="TextureRect" parent="Spinner"]
@@ -287,7 +307,7 @@ offset_left = -1348.0
 offset_top = -145.0
 offset_right = -1048.0
 offset_bottom = 155.0
-texture = SubResource("GradientTexture1D_tli5a")
+texture = SubResource("GradientTexture2D_fabde")
 expand_mode = 1
 
 [node name="Spin" type="Sprite2D" parent="."]
@@ -318,6 +338,7 @@ theme_override_font_sizes/font_size = 50
 text = "Cool! Claim Item!"
 
 [node name="Item" type="TextureRect" parent="End Screen"]
+layout_mode = 0
 offset_left = 378.0
 offset_top = 103.0
 offset_right = 778.0
