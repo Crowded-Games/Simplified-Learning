@@ -224,9 +224,9 @@ color = Color(0.137255, 0.0509804, 0.337255, 1)
 
 [node name="Spinner" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 580.0
+offset_left = 1000.0
 offset_top = 291.0
-offset_right = 620.0
+offset_right = 1040.0
 offset_bottom = 331.0
 
 [node name="Image4" type="TextureRect" parent="Spinner"]

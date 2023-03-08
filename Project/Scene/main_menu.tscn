@@ -5,11 +5,11 @@
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="2_kxx44"]
 [ext_resource type="AudioStream" uid="uid://c6a5ud0xmnb5c" path="res://Music/beautiful-piano-115480.mp3" id="3_v8j0r"]
 
-[sub_resource type="Gradient" id="Gradient_oxbcr"]
+[sub_resource type="Gradient" id="Gradient_s42lj"]
 colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_arsgt"]
-gradient = SubResource("Gradient_oxbcr")
+gradient = SubResource("Gradient_s42lj")
 fill_from = Vector2(0, 0.00458716)
 
 [sub_resource type="Animation" id="Animation_vfihc"]
@@ -260,6 +260,15 @@ theme_override_fonts/font = ExtResource("2_kxx44")
 theme_override_font_sizes/font_size = 50
 text = "Take Quiz"
 
+[node name="Inventory" type="Button" parent="."]
+offset_left = 944.0
+offset_top = 556.0
+offset_right = 1150.0
+offset_bottom = 647.0
+theme_override_fonts/font = ExtResource("2_kxx44")
+theme_override_font_sizes/font_size = 60
+text = "Inventory"
+
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = -550.0
@@ -282,3 +291,4 @@ libraries = {
 [connection signal="pressed" from="Settings" to="." method="button" binds= [3]]
 [connection signal="pressed" from="Quit" to="." method="button" binds= [4]]
 [connection signal="pressed" from="Quiz" to="." method="button" binds= [5]]
+[connection signal="pressed" from="Inventory" to="." method="button" binds= [6]]
