@@ -6,15 +6,14 @@ var signal_maximum = 5
 var wrong_terms: PackedStringArray
 var wrong_descriptions: PackedStringArray
 
-func Main_Menu():
-	if number != signal_maximum:
+func Main_Menu(back_out: bool = false):
+	if number != signal_maximum && back_out == false:
 		signal_emit()
 		number += 1
 	else:
 		# Save all of these to a file. Why? Why not. Maybe in the future you can redo your old
 		# errors that you have committed.
 		var file = FileAccess.open("res://WrongTerms.txt", FileAccess.WRITE)
-		file.flush()
 		number = 0
 		while number < wrong_terms.size():
 			file.store_line(wrong_terms[number])

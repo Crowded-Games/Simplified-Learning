@@ -1816,7 +1816,7 @@ libraries = {
 }
 
 [connection signal="show_between_text" from="." to="Between Text" method="_on_studying_part_show_between_text"]
-[connection signal="pressed" from="Menu Menu/Back Button" to="." method="Main_Menu"]
+[connection signal="pressed" from="Menu Menu/Back Button" to="." method="Main_Menu" binds= [true]]
 [connection signal="pressed" from="Menu Menu/Select Set" to="." method="_on_select_set_pressed"]
 [connection signal="show_button_masher" from="Between Text" to="Button Masher" method="show_button_masher"]
 [connection signal="show_flash_card" from="Between Text" to="Flash Card" method="show_flash_card"]
