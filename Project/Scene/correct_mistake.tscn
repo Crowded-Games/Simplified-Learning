@@ -184,8 +184,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0hocy")
 middle_words = PackedStringArray("is", "according to sources is", "from what I can see is", "from my database is", "coming from personal experience is")
-audio_advice = PackedStringArray("Say the term 3 times", "Say the description 3 times", "Say the term followed by \"equals to\" followed by the description")
-writing_advice = PackedStringArray("Write the term and the description side by side.", "Write the term 3 times.", "Write the description 3 times.")
+audio_advice = PackedStringArray("Say the term 3 times", "Say the description 3 times", "Say the term followed by \"equals to\" followed by the description", "Describe the term to yourself", "Say the term in a russian accent", "Say the term in a british accent", "Say the term in a scottish accent", "Describe the term as if it were evil!")
+writing_advice = PackedStringArray("Write the term and the description side by side.", "Write the term 3 times.", "Write the description 3 times.", "Create a picture of the term", "Write a example sentence about the word")
 
 [node name="Background" type="Node" parent="."]
 
