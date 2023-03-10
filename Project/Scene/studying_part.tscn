@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c6moi8geo1s5n"]
+[gd_scene load_steps=41 format=3 uid="uid://c6moi8geo1s5n"]
 
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_bdqdd"]
 [ext_resource type="Script" path="res://Code/Other Scenes/studying_part.gd" id="1_qioo5"]
@@ -6,7 +6,9 @@
 [ext_resource type="AudioStream" uid="uid://opvfjpl8vdeh" path="res://Music/piano-moment-9835.mp3" id="3_roeoc"]
 [ext_resource type="Script" path="res://Code/ExtraAudio.gd" id="4_q54vs"]
 [ext_resource type="Script" path="res://Code/Studying Part/Between Text.gd" id="5_aybkm"]
+[ext_resource type="AudioStream" uid="uid://desea1sks40k8" path="res://Sound/Win.wav" id="5_goi0l"]
 [ext_resource type="Script" path="res://Code/Studying Part/Flash Card.gd" id="6_50g71"]
+[ext_resource type="AudioStream" uid="uid://dnuoghvulbqly" path="res://Sound/Fail.wav" id="6_a3itr"]
 [ext_resource type="Script" path="res://Code/Studying Part/Writing Prompt.gd" id="7_ow8hj"]
 [ext_resource type="Script" path="res://Code/Studying Part/Multiple Choice.gd" id="8_e0glg"]
 [ext_resource type="Script" path="res://Code/Studying Part/Shape Clicker.gd" id="9_0y64m"]
@@ -1295,6 +1297,16 @@ autoplay = true
 bus = &"Music"
 script = ExtResource("4_q54vs")
 AutoLoop = true
+
+[node name="Correct" type="AudioStreamPlayer" parent="Background"]
+stream = ExtResource("5_goi0l")
+volume_db = -10.0
+max_polyphony = 2
+
+[node name="Wrong" type="AudioStreamPlayer" parent="Background"]
+stream = ExtResource("6_a3itr")
+volume_db = -10.0
+max_polyphony = 2
 
 [node name="Menu Menu" type="Control" parent="."]
 anchors_preset = 0

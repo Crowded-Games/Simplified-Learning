@@ -6,6 +6,9 @@ var description: PackedStringArray
 @onready var term_object = get_node("Label")
 @onready var writing_animation = get_node("AnimationPlayer")
 
+@onready var correct_audio = get_parent().get_node("Background/Correct")
+@onready var wrong_audio = get_parent().get_node("Background/Wrong")
+
 var current_number = 0
 # Same as the editor
 var EndingText = "THISISTHEENDDONOTDOANYTHINGAFTERTHIS"
@@ -40,8 +43,10 @@ func _process(delta):
 
 func _on_answer_edit_text_submitted(new_text: String):
 	if new_text.to_upper() == description[current_number].to_upper():
+		correct_audio.play()
 		green += 1
 	else:
+		wrong_audio.play()
 		red += 1
 		# Save these to the wrong list for later
 		get_node(".").get_parent().wrong_terms.append(terms[current_number])

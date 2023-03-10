@@ -5,6 +5,9 @@ var description: PackedStringArray
 
 @onready var choice_animator = get_node("AnimationPlayer")
 
+@onready var correct_audio = get_parent().get_node("Background/Correct")
+@onready var wrong_audio = get_parent().get_node("Background/Wrong")
+
 var current_number = 0
 # Same as the editor
 var EndingText = "THISISTHEENDDONOTDOANYTHINGAFTERTHIS"
@@ -41,9 +44,11 @@ func _process(delta):
 
 func button_pressed(color: String):
 	if get_node("Questions/" + color).get("text") == description[current_number]:
+		correct_audio.play()
 		green += 1
 		new_stuff()
 	else:
+		wrong_audio.play()
 		red += 1
 		# add wrong stuff
 		get_node(".").get_parent().wrong_terms.append(terms[current_number])

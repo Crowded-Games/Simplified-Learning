@@ -6,6 +6,9 @@ var description: PackedStringArray
 @onready var description_object = get_node("Description")
 @onready var choice_animator = get_node("AnimationPlayer")
 
+@onready var correct_audio = get_parent().get_node("Background/Correct")
+@onready var wrong_audio = get_parent().get_node("Background/Wrong")
+
 var current_number = 0
 # Same as the editor
 var EndingText = "THISISTHEENDDONOTDOANYTHINGAFTERTHIS"
@@ -33,8 +36,10 @@ func show_multiple_choice(selected_number):
 # Button stuff for all 4 buttons
 func answer_pressed(answer_number: int):
 	if get_node("Buttons/Answer" + str(answer_number)).get("text").to_upper() == terms[current_number].to_upper():
+		correct_audio.play()
 		green += 1
 	else:
+		wrong_audio.play()
 		red += 1
 		# Save these to the wrong list for later
 		get_node(".").get_parent().wrong_terms.append(terms[current_number])

@@ -5,6 +5,9 @@ var description: PackedStringArray
 
 @onready var choice_animator = get_node("AnimationPlayer")
 
+@onready var correct_audio = get_parent().get_node("Background/Correct")
+@onready var wrong_audio = get_parent().get_node("Background/Wrong")
+
 var current_number = 0
 var required_amount_of_presses = 4
 # Same as the editor
@@ -38,9 +41,11 @@ func ButtonPress(ButtNumber: int):
 		return
 	if get_node("Button" + str(ButtNumber)).get("text") == description[current_number]:
 		current_amount_of_presses += 1
+		correct_audio.play()
 		get_node("AnimationPlayer").play("Button_Correct")
 		RefreshStuff()
 	else:
+		wrong_audio.play()
 		current_amount_of_presses = 0
 		current_number += 1
 		# add wrong stuff
