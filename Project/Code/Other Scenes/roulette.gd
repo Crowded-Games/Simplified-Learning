@@ -7,6 +7,7 @@ var MaxItems = 5
 
 func _ready():
 	ItemGained = randi_range(1, MaxItems)
+	get_node("Background/AudioStreamPlayer").play()
 	animation.play("Start")
 
 func spin():

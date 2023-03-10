@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2dv65smrmdih"]
+[gd_scene load_steps=11 format=3 uid="uid://cvgtbea83mm17"]
 
-[ext_resource type="Script" path="res://Code/correct_mistake.gd" id="1_0hocy"]
+[ext_resource type="Script" path="res://Code/Other Scenes/correct_mistake.gd" id="1_0hocy"]
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_kplfm"]
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="3_jkl25"]
 [ext_resource type="AudioStream" uid="uid://35t6akwwts3l" path="res://Music/tense-sad-piano-111679.mp3" id="3_npnbl"]
+[ext_resource type="Script" path="res://Code/ExtraAudio.gd" id="4_726ct"]
 
 [sub_resource type="Gradient" id="Gradient_6cavt"]
 colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
@@ -216,6 +217,8 @@ color = Color(0.137255, 0.0509804, 0.337255, 1)
 stream = ExtResource("3_npnbl")
 autoplay = true
 bus = &"Music"
+script = ExtResource("4_726ct")
+AutoLoop = true
 
 [node name="Term" type="Label" parent="."]
 layout_mode = 0

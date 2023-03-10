@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://k8egubxgnyna"]
+[gd_scene load_steps=11 format=3 uid="uid://c6h5m8n1e2gci"]
 
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_0royd"]
-[ext_resource type="Script" path="res://Code/main_menu.gd" id="1_2pk1o"]
+[ext_resource type="Script" path="res://Code/Other Scenes/main_menu.gd" id="1_dwk0r"]
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="2_kxx44"]
 [ext_resource type="AudioStream" uid="uid://c6a5ud0xmnb5c" path="res://Music/beautiful-piano-115480.mp3" id="3_v8j0r"]
+[ext_resource type="Script" path="res://Code/ExtraAudio.gd" id="4_34l1k"]
 
 [sub_resource type="Gradient" id="Gradient_s42lj"]
 colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
@@ -201,7 +202,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_2pk1o")
+script = ExtResource("1_dwk0r")
 
 [node name="Background" type="Node" parent="."]
 
@@ -233,6 +234,8 @@ color = Color(0.137255, 0.0509804, 0.337255, 1)
 stream = ExtResource("3_v8j0r")
 autoplay = true
 bus = &"Music"
+script = ExtResource("4_34l1k")
+AutoLoop = true
 
 [node name="Start" type="Button" parent="."]
 layout_mode = 2

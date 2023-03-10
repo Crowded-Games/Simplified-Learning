@@ -1,9 +1,10 @@
-[gd_scene load_steps=38 format=3 uid="uid://b2my6e6h13o3p"]
+[gd_scene load_steps=39 format=3 uid="uid://c6moi8geo1s5n"]
 
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_bdqdd"]
-[ext_resource type="Script" path="res://Code/studying_part.gd" id="1_qioo5"]
+[ext_resource type="Script" path="res://Code/Other Scenes/studying_part.gd" id="1_qioo5"]
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="3_ac4pl"]
 [ext_resource type="AudioStream" uid="uid://opvfjpl8vdeh" path="res://Music/piano-moment-9835.mp3" id="3_roeoc"]
+[ext_resource type="Script" path="res://Code/ExtraAudio.gd" id="4_q54vs"]
 [ext_resource type="Script" path="res://Code/Studying Part/Between Text.gd" id="5_aybkm"]
 [ext_resource type="Script" path="res://Code/Studying Part/Flash Card.gd" id="6_50g71"]
 [ext_resource type="Script" path="res://Code/Studying Part/Writing Prompt.gd" id="7_ow8hj"]
@@ -1290,6 +1291,8 @@ color = Color(0.137255, 0.0509804, 0.337255, 1)
 stream = ExtResource("3_roeoc")
 autoplay = true
 bus = &"Music"
+script = ExtResource("4_q54vs")
+AutoLoop = true
 
 [node name="Menu Menu" type="Control" parent="."]
 anchors_preset = 0

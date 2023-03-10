@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dw7e0bwkua5rq"]
+[gd_scene load_steps=7 format=3 uid="uid://gsdc2pevpu41"]
 
-[ext_resource type="Script" path="res://Code/editor.gd" id="1_butje"]
+[ext_resource type="Script" path="res://Code/Other Scenes/editor.gd" id="1_butje"]
 [ext_resource type="AudioStream" uid="uid://dr1apnue4q3df" path="res://Music/forget-16026.mp3" id="2_0w78f"]
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="2_8ydic"]
+[ext_resource type="Script" path="res://Code/ExtraAudio.gd" id="4_cvbmj"]
 
 [sub_resource type="Gradient" id="Gradient_765v7"]
 colors = PackedColorArray(0, 0, 0.6, 1, 0, 0, 0.360784, 1)
@@ -34,6 +35,8 @@ texture = SubResource("GradientTexture2D_g6gy4")
 stream = ExtResource("2_0w78f")
 autoplay = true
 bus = &"Music"
+script = ExtResource("4_cvbmj")
+AutoLoop = true
 
 [node name="Term" type="Label" parent="."]
 layout_mode = 0

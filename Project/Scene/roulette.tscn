@@ -1,6 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://be1fyipgtk0pt"]
+[gd_scene load_steps=26 format=3 uid="uid://cm1ii26kn14w7"]
 
-[ext_resource type="Script" path="res://Code/roulette.gd" id="1_4p0uy"]
+[ext_resource type="Script" path="res://Code/Other Scenes/roulette.gd" id="1_0btq1"]
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_eimic"]
 [ext_resource type="Texture2D" uid="uid://f62j2sovwn3q" path="res://Images/Loot/Image1.png" id="3_4lp7e"]
 [ext_resource type="Texture2D" uid="uid://drd3g3acppdah" path="res://Images/Loot/Image2.png" id="3_5sskh"]
@@ -8,6 +8,8 @@
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="4_iu1g6"]
 [ext_resource type="Texture2D" uid="uid://mdgms2cse78a" path="res://Images/Loot/Image4.png" id="5_bqwld"]
 [ext_resource type="Texture2D" uid="uid://cq7sto8gjhe38" path="res://Images/Loot/Image5.png" id="6_2ttkg"]
+[ext_resource type="AudioStream" uid="uid://c8ioiiqto3ki0" path="res://Music/upbeat-acoustic-ambient-guitar-background-music-for-videos-5601.mp3" id="7_0qg72"]
+[ext_resource type="Script" path="res://Code/ExtraAudio.gd" id="8_17whd"]
 [ext_resource type="Texture2D" uid="uid://do7doqmv0vahn" path="res://Images/Thing.png" id="8_fjihy"]
 
 [sub_resource type="Gradient" id="Gradient_gtjcu"]
@@ -268,7 +270,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_4p0uy")
+script = ExtResource("1_0btq1")
 textures = [ExtResource("3_4lp7e"), ExtResource("3_5sskh"), ExtResource("4_deomu"), ExtResource("5_bqwld"), ExtResource("6_2ttkg")]
 
 [node name="Background" type="Node" parent="."]
@@ -281,8 +283,9 @@ scale = Vector2(10.1252, 17.9997)
 texture = SubResource("GradientTexture2D_yl6le")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background"]
-autoplay = true
+stream = ExtResource("7_0qg72")
 bus = &"Music"
+script = ExtResource("8_17whd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
 root_node = NodePath("../..")

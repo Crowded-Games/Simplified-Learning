@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgkvyc3omrg30"]
+[gd_scene load_steps=11 format=3 uid="uid://cdvoxq8e4tk02"]
 
 [ext_resource type="Texture2D" uid="uid://cf72negvwa8an" path="res://Images/Cool Circle.png" id="1_shjx3"]
 [ext_resource type="AudioStream" uid="uid://pfhh126xxnru" path="res://Music/lonestar-136900.mp3" id="2_1hybg"]
-[ext_resource type="Script" path="res://Code/Beginning Options.gd" id="2_jyq71"]
+[ext_resource type="Script" path="res://Code/Other Scenes/Beginning Options.gd" id="2_jyq71"]
+[ext_resource type="Script" path="res://Code/ExtraAudio.gd" id="3_0rg75"]
 [ext_resource type="FontFile" uid="uid://cukojdfm477jb" path="res://Font/Fondness-Eapae.ttf" id="3_4pxv3"]
 
 [sub_resource type="Gradient" id="Gradient_xqhld"]
@@ -102,6 +103,8 @@ color = Color(0.137255, 0.0509804, 0.337255, 1)
 stream = ExtResource("2_1hybg")
 autoplay = true
 bus = &"Music"
+script = ExtResource("3_0rg75")
+AutoLoop = true
 
 [node name="Beginning Options" type="CenterContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
