@@ -5,10 +5,13 @@ var description: PackedStringArray
 
 @onready var choice_animator = get_node("AnimationPlayer")
 
-var current_number = -1
+var current_number = 0
 var required_amount_of_presses = 4
 # Same as the editor
 var EndingText = "THISISTHEENDDONOTDOANYTHINGAFTERTHIS"
+
+func _ready():
+	randomize()
 
 func show_button_masher(selected_number):
 	choice_animator.play("appear")
@@ -23,6 +26,8 @@ func show_button_masher(selected_number):
 		next_line = file.get_line()
 		description.append(next_line)
 		next_line = file.get_line()
+	
+	current_number = randi_range(0, terms.size() - 1)
 	RefreshStuff()
 	get_node("AnimationPlayer").play("appear")
 

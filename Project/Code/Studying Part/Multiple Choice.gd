@@ -10,6 +10,9 @@ var current_number = 0
 # Same as the editor
 var EndingText = "THISISTHEENDDONOTDOANYTHINGAFTERTHIS"
 
+func _ready():
+	randomize()
+
 func show_multiple_choice(selected_number):
 	choice_animator.play("appear")
 	var file = FileAccess.open("res://Set" + str(selected_number) + ".txt", FileAccess.READ)
@@ -23,7 +26,8 @@ func show_multiple_choice(selected_number):
 		next_line = file.get_line()
 		description.append(next_line)
 		next_line = file.get_line()
-	description_object.set("text", description[0])
+	current_number = randi_range(0, description.size() - 1)
+	description_object.set("text", description[current_number])
 	RedoAnswers()
 
 # Button stuff for all 4 buttons

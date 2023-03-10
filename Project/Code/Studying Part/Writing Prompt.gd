@@ -25,7 +25,8 @@ func show_writing_prompt(selected_number):
 		description.append(next_line)
 		next_line = file.get_line()
 	# NOW... load the first term
-	term_object.set("text", terms[0])
+	current_number = randi_range(0, terms.size() - 1)
+	term_object.set("text", terms[current_number])
 
 var green = 0.0
 var red = 0.0

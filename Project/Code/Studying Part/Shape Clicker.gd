@@ -9,6 +9,9 @@ var current_number = 0
 # Same as the editor
 var EndingText = "THISISTHEENDDONOTDOANYTHINGAFTERTHIS"
 
+func _ready():
+	randomize()
+
 func show_shape_clicker(selected_number):
 	choice_animator.play("appear")
 	var file = FileAccess.open("res://Set" + str(selected_number) + ".txt", FileAccess.READ)
@@ -22,7 +25,7 @@ func show_shape_clicker(selected_number):
 		next_line = file.get_line()
 		description.append(next_line)
 		next_line = file.get_line()
-	get_node("Term").set("text", terms[current_number])
+	current_number = randi_range(0, terms.size() - 1)
 	get_node("AnimationPlayer").play("appear")
 	new_stuff()
 

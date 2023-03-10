@@ -11,6 +11,9 @@ var flipped = false
 # Same as the editor
 var EndingText = "THISISTHEENDDONOTDOANYTHINGAFTERTHIS"
 
+func _ready():
+	randomize()
+
 func show_flash_card(selected_number):
 	card_animator.play("appear")
 	var file = FileAccess.open("res://Set" + str(selected_number) + ".txt", FileAccess.READ)
@@ -24,7 +27,8 @@ func show_flash_card(selected_number):
 		next_line = file.get_line()
 		description.append(next_line)
 		next_line = file.get_line()
-	term_object.set("text", terms[0])
+	term_number = randi_range(0, terms.size() - 1)
+	term_object.set("text", terms[term_number])
 
 func _on_left_pressed():
 	# Don't want the animation to be interupted
